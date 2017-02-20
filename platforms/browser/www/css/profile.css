@@ -1,0 +1,33 @@
+.input-profile {
+	background-color: #ecf0f1 !important;
+	/*background-color: white !important;*/
+}
+
+.input-profile-edit {
+	background-color: white !important;
+}
+
+.ui-corner-all {
+	border-radius: 0px  !important;
+	border: none !important;
+	font-weight: 400 !important;
+}
+
+.padding-left-right-30 {
+	padding-left: 35px !important;
+	padding-right: 35px !important;
+}
+
+.grid-margin-bottom {
+	margin-bottom: 10px !important;
+}
+
+.line-divide {
+	margin-top: 10px !important;
+	margin-bottom: 10px !important;
+	width: 100% !important;
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+	border-color: #ecf0f1 !important;
+	border-width: 1px !important;
+}

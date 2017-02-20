@@ -1,0 +1,106 @@
+.line-white {
+	background-color: white !important;
+	max-width: 200px;
+	margin-right: auto;
+	margin-left: auto;
+	border-radius: 50px;
+	/*height: 30px;*/
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 4px;
+}
+
+.line-orange {
+	background-color: #dc5e4a !important;
+	width: 60%;
+	border-radius: 50px;
+	margin-top: 2px !important;
+	margin-bottom: 2px !important;
+	text-align: center;
+	/*height: 26px;*/
+}
+
+.info-cash {
+	margin-bottom: 0px !important; 
+	margin-top: 0px !important;
+	font-size: 0.8em !important;
+	color: white !important;
+	margin-top: auto !important;
+	margin-bottom: auto !important; 
+}
+
+.text-small {
+	color: #73b3f9;
+	font-size: 0.8em;
+}
+
+.text-info-small {
+	color: white;
+	font-size: 0.6em;
+}
+
+.quads {
+	border: solid;
+	border-width: 1px;
+	border-color: #73b3f9;
+	border-radius: 50px;
+	max-width: 250px;
+	margin-right: auto !important;
+	margin-left: auto !important;
+	margin-bottom: 2% !important;
+}
+
+.border-left {
+	border: solid !important;
+	border-width: 1px !important;
+	border-color: #73b3f9 !important;
+	border-right: none !important;
+	border-top: none !important;
+	border-bottom: none !important;
+}
+
+.text-info {
+	color: #73b3f9;
+	margin-top: 0px !important;
+}
+
+.bt-footer {
+	margin: 0px !important;
+	border: none !important;
+	background-color: #dc5e4a !important;
+	color: white !important;
+	border-radius: 0px !important;
+	height: 55px;
+}
+
+.text-small-info {
+	color: #dc5e4a !important;
+	font-size: 0.7em;
+}
+
+.btn-orange {
+	color: #dc5e4a !important;
+	border-radius: 50px;
+	font-size: 0.6em !important;
+	border-color: #dc5e4a !important;
+	width: 40% !important;
+	margin-right: auto !important;
+	margin-left: auto !important;
+	height: 10% !important;
+}
+
+.ui-slider{
+	background-color: transparent !important;
+}
+
+.ui-slider-track{
+	height: 5px !important;
+	border-color: blue !important;
+	border-style: none !important;
+	background-color: black !important;
+}
+
+.ui-slider-handle{
+	border-radius: 50% !important;
+	background-color: black !important;
+}

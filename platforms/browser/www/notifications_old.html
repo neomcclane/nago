@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Nago App | Friends</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css">
+	
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/notifications.css">
+ 
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+	
+</head>
+
+<body>
+	<div data-role="page"> 	
+		
+		<div data-role="panel" id="menu" data-display="overlay" data-position="right">
+		 	<!-- llamada al Final con Load() -->
+		</div>
+		
+		<div id="header" data-role="header" data-position="fixed" data-tap-toggle="false" class="header-menu">	
+		<!-- llamada al Final con Load() -->	
+		</div>		
+
+		<div data-role="content padding-none" style="margin-top: -2px;">			
+			<div class="content-rmenu3 bg-color white-text" >
+				<div class="ui-grid-b">
+						<div class="ui-block-a grid-width-10">
+							
+						</div>
+						<div class="ui-block-b grid-width-80 align-center">
+							<div class="ui-grid-solo">
+								<div class="ui-block-a">
+									<p class="title-page">NOTIFICATIONS</p>
+								</div>
+							</div>
+
+						</div>
+						<div class="ui-block-c grid-width-10">
+							
+						</div>
+				</div>		
+
+				<div class="ui-grid-solo">
+					<div class="ui-block-a align-center">
+						<div class="ui-grid-a">
+							<div class="ui-block-a align-right">
+								<p class="recent-info-menu">RECENT</p>
+							</div>
+							<div class="ui-block-b align-left">
+								<p class="num-info-menu">12</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- BOTONES PARA CAMBIAR DE LISTA -->
+				<div class="ui-grid-solo content-fixed-button">
+					<div class="ui-block-a">
+						<div class="ui-grid-b">
+							<div class="ui-block-a width-10 align-center">
+								<button id="button1" class="ui-btn ui-mini margin-auto btn-small-style-active width-per-80" >MY MONEY</button>
+							</div>
+							<div class="ui-block-b width-80 align-center">
+								<button id="button2" class="ui-btn ui-mini margin-auto btn-small-style width-per-80" >DEALS</button>
+							</div>
+							<div class="ui-block-c width-10 align-center">
+								<button id="button3" class="ui-btn ui-mini margin-auto btn-small-style width-per-80" >COMMENTS</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- PAGINA 1 | MY MONEY -->
+				<div  id="page1" class="ui-grid-solo visible">
+					
+					<div class="ui-block-a">
+						<div class="content-list-notifications">
+						<!--  -->
+
+						<ul class="list-notifications" data-role="listview" data-inset="true" data-icon="false" >
+							<li class="content-notifications-list-grey" style="margin-top: 20px;">
+								<div class="ui-grid-a" style="margin-top:10px;">
+									<div class="ui-block-a grid-width-40 align-center">
+										<img class="image-small-notifications img-responsive" src="img/perfil0.png">
+
+									</div>
+									<div class="ui-block-b grid-width-60 align-left">
+										<p class="line-height-1"> <span class="name-notifications"><strong>Sebastiana Black</strong></span> <br> <span class="comment-notifications">Faculty of Engineering</span></p>
+									</div>
+								</div>  
+								
+						    </li>
+							<li class="content-notifications-list-white" >
+								<div class="ui-grid-a" style="margin-top:10px;">
+									<div class="ui-block-a grid-width-40 align-center">
+										<img class="image-small-notifications img-responsive" src="img/perfil1.png">
+
+									</div>
+									<div class="ui-block-b grid-width-60 align-left">
+										<p class="line-height-1"> <span class="name-notifications"><strong>Albert Smith</strong></span> <br> <span class="comment-notifications">is new in nago</span></p>
+									</div>
+								</div>  
+								
+						    </li>
+							<li class="content-notifications-list-grey">
+								<div class="ui-grid-a" style="margin-top:10px;">
+									<div class="ui-block-a grid-width-40 align-center">
+										<img class="image-small-notifications img-responsive" src="img/perfil2.png">
+
+									</div>
+									<div class="ui-block-b grid-width-60 align-left">
+										<p class="line-height-1"> <span class="name-notifications"><strong>Erika Whitewine</strong></span> <br> <span class="comment-notifications">Needs to fund 400$</span></p>
+									</div>
+								</div>  
+								
+						    </li>
+
+							<li class="content-notifications-list-white" >
+								<div class="ui-grid-a" style="margin-top:10px;">
+									<div class="ui-block-a grid-width-40 align-center">
+										<img class="image-small-notifications img-responsive" src="img/perfil3.png">
+
+									</div>
+									<div class="ui-block-b grid-width-60 align-left">
+										<p class="line-height-1"> <span class="name-notifications"><strong>Samantha Martins</strong></span> <br> <span class="comment-notifications">Is currently is waiting for invest</span></p>
+									</div>
+								</div>  
+								
+						    </li>
+
+						</ul>
+						<!--  -->
+						</div>
+					</div>					
+				</div>
+
+				<!-- PAGINA 2 | DEALS-->
+
+				<div  id="page2" class="ui-grid-solo hide">					
+					<div class="ui-block-a">
+						<div class="content-list-notifications">
+							<ul class="list-notifications" data-role="listview" data-inset="true" data-icon="false" >
+								<li class="content-notifications-list-grey" style="margin-top: 20px;">
+									<div class="ui-grid-a" style="margin-top:10px;">
+										<div class="ui-block-a grid-width-40 align-center">
+											<img class="image-small-notifications img-responsive" src="img/perfil0.png">
+										</div>
+										<div class="ui-block-b grid-width-60 align-left">
+											<p class="line-height-1"> <span class="name-notifications"><strong>Jennifer Reve</strong></span> <br> <span class="comment-notifications">Faculty of Engineering</span></p>
+										</div>
+									</div> 									
+							    </li>
+								<li class="content-notifications-list-white" >
+									<div class="ui-grid-a" style="margin-top:10px;">
+										<div class="ui-block-a grid-width-40 align-center">
+											<img class="image-small-notifications img-responsive" src="img/perfil1.png">
+										</div>
+										<div class="ui-block-b grid-width-60 align-left">
+											<p class="line-height-1"> <span class="name-notifications"><strong>Albert Stuard</strong></span> <br> <span class="comment-notifications">is new in nago</span></p>
+										</div>
+									</div>  									
+							    </li>								
+							</ul>					 
+						</div>
+					</div>					
+				</div>
+
+				<!-- PAGINA 3 | COMMENTS-->
+				
+				<div  id="page3" class="ui-grid-solo hide">					
+					<div class="ui-block-a">
+						<div class="content-list-notifications">
+							<ul class="list-notifications" data-role="listview" data-inset="true" data-icon="false" >		 
+								<li class="content-notifications-list-white" >
+									<div class="ui-grid-a" style="margin-top:10px;">
+										<div class="ui-block-a grid-width-40 align-center">
+											<img class="image-small-notifications img-responsive" src="img/perfil1.png">
+										</div>
+										<div class="ui-block-b grid-width-60 align-left">
+											<p class="line-height-1"> <span class="name-notifications"><strong>Albert Stuard</strong></span> <br> <span class="comment-notifications">hellow my Friend :p</span></p>
+										</div>
+									</div>  									
+							    </li>								
+							</ul>					 
+						</div>
+					</div>					
+				</div>
+			
+
+			</div>	
+		</div>	
+	</div>	
+
+		
+ <script src="js/listmenu.js"></script>
+ <script>
+			$("#menu").load('menu.html');
+			$("#header").load('header.html');
+</script>	
+</body>
+</html>

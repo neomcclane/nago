@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+	<title>Nago App | login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<link rel="stylesheet" href="css/linkstyles.css">
+	<!-- <script type="text/javascript" src="cordova.js"></script>
+	<script src="js/camera.js"></script> -->
+	<script src="js/config_var.js"></script>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+</head> 
+ 
+<body>	
+	<div data-role="page" class="bg-color padding-none"> 		
+		
+		<div data-role="content" class="full-height">	
+			<!-- Logo -->
+			<div class="ui-grid-a">
+				<div class="ui-block-a grid-width-10"></div>
+				<div class="ui-block-b grid-width-80 align-center  padding-top-15">
+					<img class="principal-logo" src="img/Shape4.png" alt="">
+				</div>
+				<div class="ui-block-c grid-width-10"></div>
+			</div>	
+			<div class="ui-grid-b">
+				<div class="ui-block-a grid-width-10"></div>
+				<div class="ui-block-b grid-width-80 align-center">
+					<img class="principal-logo-text" src="img/Shape5.png" alt="">
+				</div>
+				<div class="ui-block-c grid-width-10"></div>
+			</div>		
+			<br>
+		
+				<!-- User And Password	 -->
+			<div class="ui-grid-b position-down">
+				<div class="ui-block-a grid-width-12">				
+				</div>
+				<div class="ui-block-b grid-width-76">
+					<div class="ui-grid-solo">
+						<div class="ui-block-a ">	
+
+							<form action="">
+								<div class="ui-grid-solo" >								
+									<div class="ui-block-a">
+										<div class="ui-field-contain padding-none border-color margin-bottom-none">
+											<input type="text" name="username" id="id_username" class="white-text" placeholder="USERNAME" autocomplete="off" onclick="hideMsg()">										
+										</div>
+									</div>
+								</div>
+								<hr class="full">								
+								<div class="ui-grid-solo">									
+									<div class="ui-block-a">
+										<div class="ui-field-contain padding-none border-color margin-bottom-none">			 
+											<input type="password" name="password" id="password" class="white-text" placeholder="PASSWORD" autocomplete="off" onclick="hideMsg()">
+										</div>
+									</div>
+								</div>
+								<hr class="full">	
+							</form>
+							<br>
+							<div class="ui-grid-solo">
+								<div class="ui-block-a align-right white-text">
+									<a href="forgot.html"  class="white-text nounderline align-right" rel="external" data-transition="pop">Forgot Password</a>
+							    </div>
+							</div>
+							
+							<!-- Alert red -->
+							<div class="ui-grid-solo">
+								<div class="ui-block-a align-center ">
+									<span id="msg"style="display:none; color:#dc5e4a; margin-top:20px;"></span>
+								</div>
+							</div>
+				 			<!-- /Alert red -->
+
+							<br><br>
+							<!-- FACEBOOK BUTTON -->
+
+							<div class="ui-grid-solo ">
+								<div class="ui-block-a">
+									<button class="ui-btn bg-color fb-btn blue-text font-size-08">SIGN UP WITH FACEBOOK</button>
+								</div>
+							</div>
+
+							<div class="ui-grid-solo ">
+								<div class="ui-block-a align-center white-text ">
+									<p>Don`t have an account? <a href="register.html" class="white-text nounderline font-size-12" data-transition="slide" data-ajax="false">SIGN UP</a></p>
+								</div>
+							</div>
+							<br><br>
+
+						</div>
+					</div>
+				</div>	
+				<div class="ui-block-c grid-width-12">					
+				</div>
+			</div>  <!-- User and Password END -->
+				
+		</div>   <!-- Content END -->
+
+		<div data-role="footer" data-position="fixed">
+			<button id="signIn" type="submit" class="ui-btn ui-corner-all btn-block btn-red-a">SIGN IN</button>
+			<!-- <a href="main.html"  data-transition="slidefade" rel="external" class="btn-red">SIGN IN</a> -->
+		</div>
+
+	</div> 	 <!--  PAGE END  -->
+	<script>
+
+		$(document).ready(function() {
+			localStorage.clear();
+		});
+
+		function hideMsg() {
+			 // $.mobile.loading("show");
+			 $('#msg').hide('fast');
+		}
+		// request: {username, password, app}
+		// response:{id, fullname, username, available, locked, invest, num_visit}
+
+		$('#signIn').click(function() {
+
+				if ($("#username").val() != "" && $("#password").val() != "") {
+                var request = $.ajax({
+                    url: serverURL+"login/",
+                    method: "POST",
+                    data: {username: $("#id_username").val(), password: $("#password").val(), app: 'N4g04pp'}
+                    //dataType: "text",
+                    //contentType: 'text/plain; charset=UTF-8'
+                });
+                
+                request.done(function(data) {                    
+                 					
+					if (!$.isEmptyObject(data)) {						
+                    	// data = JSON.parse(data);
+	                    localStorage.clear();
+	                    localStorage['user_id'] = data.id; 
+	                    localStorage['user_fullname'] = data.fullname; 
+	                    localStorage['user_name'] = data.name; 
+	                    localStorage['user_lastname'] = data.lastname; 
+	                    localStorage['user_telephone'] = data.telephone; 
+	                    localStorage['user_birthdate'] = data.birthdate; 
+	                    localStorage['user_username'] = data.username; 
+	                    localStorage['user_description'] = data.description; 
+	                    localStorage['user_email'] = data.email;
+	                    localStorage['user_invest'] = data.invest;
+	                    localStorage['user_available'] = data.available;
+	                    localStorage['user_num_visit'] = data.num_visit;
+	                    localStorage['user_locked'] = data.locked;
+	                    localStorage['user_friends_number'] = data.number_friends
+
+	                    // localStorage['user_picture'] = data.picture; 
+           
+                        document.location.href = "keyboard.html";
+                    } else {
+                    	$('#msg').html('Username or password invalid.').show('fast');
+                        $.mobile.loading("hide");
+                    }
+                });
+                
+                request.fail(function (jqXHR, textStatus) {
+                    $("#msg").html("Connection error.");
+                    $("#msg").show('fast');
+                });
+                
+            } else {
+                if ($("#id_username").val()=="") {
+                    $("#id_username").attr('placeholder', 'Required');
+                    $("#id_username").focus();
+                    return false;
+                }
+                
+                else if ($("#password").val()=="") {
+                    $("#password").attr('placeholder', 'Required');
+                    $("#password").focus();
+                    return false;
+                }
+            }
+            
+            $(document).on("click", ".show-page-loading-msg", function () {
+                var $this = $(this),
+                        theme = $this.jqmData("theme") || $.mobile.loader.prototype.options.theme,
+                        msgText = $this.jqmData("msgtext") || $.mobile.loader.prototype.options.text,
+                        textVisible = $this.jqmData("textvisible") || $.mobile.loader.prototype.options.textVisible,
+                        textonly = !!$this.jqmData("textonly");
+                html = $this.jqmData("html") || "";
+                $.mobile.loading("show", {
+                    text: msgText,
+                    textVisible: textVisible,
+                    theme: theme,
+                    textonly: textonly,
+                    html: html
+                });
+            })
+            .on("click", ".hide-page-loading-msg", function () {
+                $.mobile.loading("hide");
+            });
+
+		});
+
+	</script>
+</body>
+</html>

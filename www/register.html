@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Nago App | Register</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css">	
+	<link rel="stylesheet" href="css/linkstyles.css"> 
+	<script src="js/config_var.js"></script>	
+</head>
+
+<body>
+
+	<div data-role="page"  class="bg-color padding-none "> 	
+		<!-- MENU SUPERIOR -->
+		<div data-role="header" data-position="fixed" class="header-menu bg-color" data-tap-toggle="false">
+			<div class="ui-grid-a menu-top">
+				<div class="ui-block-a align-left">
+					<a href="login.html" rel="external" class="icon-menu-a"><img class="icon-menu" src="img/Leftarrow.png" alt=""></a>
+					<img class="icon-menu-logo" src="img/logo-small.png" alt="">
+				</div>				
+			</div>
+		</div>
+		<!--  -->
+		<div data-role="content" class="height-full">			
+			
+			<div class="ui-grid-b">
+				<div class="ui-block-a grid-width-10"></div>
+				<div class="ui-block-b grid-width-80 align-center  padding-top-15">
+					<img id="imagen" onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="principal-logo-text" src="img/circlepen.png" alt="">
+				    <img style="display: none" id="largeImage" src="" onclick="getPhoto(pictureSource.PHOTOLIBRARY);"/>
+				    <style>
+				    	#largeImage{				    	
+				    		width:50%;
+				    		height:50%;
+				    		/*max-height:  */
+				    	}
+				    </style>
+					<!-- <button onclick="capturePhoto();">Capture Photo</button> <br>
+				    <button onclick="capturePhotoEdit();">Capture Editable Photo</button> <br>
+				    <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br> -->
+				    <!-- <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br> -->
+				    <!-- <img style="display:none;width:80%;height:80%;" id="smallImage" src="" /> -->
+					
+				</div>
+				<div class="ui-block-c grid-width-10"></div>
+			</div>
+
+			<div class="ui-grid-b">
+				<div class="ui-block-a grid-width-10">					
+				</div>
+				<div class="ui-block-b grid-width-80">
+					<div class="ui-grid-solo">
+						<div class="ui-block-a">
+							<form action="">
+								<div class="ui-grid-solo">									
+									<div class="ui-block-a">
+										<div class="ui-field-contain padding-none border-color margin-bottom-none">			
+											<input type="text" name="username" id="id_username" class="bg-color white-text" placeholder="USERNAME" autocomplete="off">
+										</div>
+									</div>
+								</div>
+								<hr class="full">
+								<!--  -->
+								<div class="ui-grid-solo">
+									<div class="ui-block-a">
+										<div class="ui-field-contain padding-none border-color margin-bottom-none">	
+											<input type="text" name="name" id="id_name" class=	"bg-color white-text border-none" placeholder="NAME" autocomplete="off">
+										</div>
+									</div>
+								</div>
+								<hr class="full">
+								<div class="ui-grid-solo">
+									<div class="ui-block-a">
+										<div class="ui-field-contain padding-none border-color margin-bottom-none">	
+											<input type="text" name="lastname" id="id_lastname" class=	"bg-color white-text border-none" placeholder="LASTNAME" autocomplete="off">
+										</div>
+									</div>
+								</div>
+								<hr class="full">
+								<!--  -->
+								<div class="ui-grid-solo">											
+									<div class="ui-block-a">
+										<div class="ui-field-contain padding-none border-color margin-bottom-none">	
+											<input type="text" name="email" id="email" class="bg-color white-text border-none" placeholder="EMAIL" autocomplete="off">
+										</div>
+									</div>
+								</div>
+								<hr class="full">
+								<div class="ui-grid-solo">									
+									<div class="ui-block-a">
+										<div class="ui-field-contain padding-none border-color margin-bottom-none">	
+											<input type="password" name="password" id="password" class="bg-color white-text border-none" placeholder="PASSWORD" autocomplete="off">
+										</div>
+									</div>
+								</div>
+								<hr class="full">								
+								<div class="ui-grid-solo">									
+									<div class="ui-block-a">
+										<div class="ui-field-contain padding-none border-color margin-bottom-none">	
+											<input type="password" name="password2" id="password2" class="bg-color white-text border-none" placeholder="CONFIRM PASSWORD" autocomplete="off">
+										</div>
+									</div>
+								</div>
+
+								<!-- Alert red -->
+								<div class="ui-grid-solo">
+									<div class="ui-block-a align-center ">
+										<span id="msg"style="display:none; color:#dc5e4a; margin-top:20px;"></span>
+									</div>
+								</div>
+					 			<!-- /Alert red -->
+								<!-- <hr class="full">								
+								<div class="ui-grid-solo">									
+									<div class="ui-block-a">
+										<div class="ui-field-contain padding-none border-color margin-bottom-none">	
+											<input type="password" type="number" name="pin" id="pin" class="bg-color white-text border-none" placeholder="PIN" autocomplete="off">
+										</div>
+									</div>
+								</div>	 -->						
+							</form>
+						</div>
+					</div>
+					
+					<div class="ui-grid-solo">
+						<div class="ui-block-a align-center white-text ">
+							<p>already have an account? <a href="login.html" rel="external" class="white-text nounderline font-size-12">SIGN IN</a></p><br><br>
+						</div>
+					</div>
+
+				</div>
+				<div class="ui-block-c grid-width-10">
+					
+				</div>
+
+			</div>
+			
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			<button type="button" id="button" class="ui-btn ui-corner-all btn-block btn-red-a">SIGN IN</button>
+			  <!-- <a href="info.html" rel="external" class="btn-red">JOIN</a> -->
+		</div>
+	</div> 
+ 	
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+	<script>
+	$(document).ready( function() {
+		console.log("probando")
+		 // Validacion del Nombre de Usuario Mientras Escribe
+		$('#id_username').keyup(function(){
+			$('#msg').hide();
+			var $palabra=$(this).val();
+			console.log($palabra);
+			
+			var request = $.ajax({
+                    url: serverURL+"existUsername/",
+                    method: "POST",
+					cache: false,
+					data:{
+						username: $('#id_username').val(),
+						app     : 'N4g04pp',
+						}
+			});
+			request.done(function (data) {
+				if (data == true) {
+					$('#msg').html('User in use').show('fast');
+	                $.mobile.loading("hide");
+				}
+				else{
+					console.log("Username Disponible..!")
+				}
+			});			
+
+		});
+
+		  // Validacion de Email Mientras se escribe
+		$('#email').keyup(function(){
+			$('#msg').hide();
+			var $palabra=$(this).val();
+			console.log($palabra);
+			
+			var request = $.ajax({
+                    url: serverURL+"existEmail/",
+                    method: "POST",
+					cache: false,
+					data:{
+						email: $('#email').val(),
+						app     : 'N4g04pp',
+						}
+			});
+			request.done(function (data) {
+				if (data == true) {
+					console.log("Email Ocupado")
+				}
+				else{
+					console.log("Email Disponible..!")
+				}
+			});			
+
+		});
+
+			// Envio de Formulario
+		$('#button').click(function() {
+
+			// var inputFileImage = document.getElementById('largeImage');
+		    // var file = inputFileImage.files[0];
+			// var file = inputFileImage.files;
+			// var img_data = new FormData(file);
+			// img_data.append('archivo',file);
+			
+			if ($("#id_name").val() != "" &&  $("#id_lastname").val() != "" && $("#id_username").val() != "" && $("#email").val() != "" && $("#password").val() != "" && $("#pin").val() != "") {
+                                       
+	            var request = $.ajax({
+	                url: serverURL+"register/",
+	                method: "POST",
+	                // contentType:false,
+					// processData:false,
+					cache: false,
+
+					// request: {name, lastname, username, email, password, img_profile, app, pin}
+
+	                data:{
+						name: $("#id_name").val(),
+						lastname: $("#id_lastname").val(),
+	                   	username: $("#id_username").val(), 
+	                	email   : $("#email").val(),
+	                	password: $("#password").val(),
+	                	// "img_profile" :img_data,
+	                	app     : 'N4g04pp'
+	                },
+
+	                //dataType: "text",
+	                //contentType: 'text/plain; charset=UTF-8'
+
+	            });
+	            
+	            request.done(function (data) {
+	                if (data == true) {
+	                	document.location.href = "login.html";
+	                } else {
+	                	$('#msg').html('Problem with connection.').show('fast');
+	                    $.mobile.loading("hide");
+	                }
+	            });
+	            
+	            request.fail(function (jqXHR, textStatus) {
+	               	$("#msg").html("Connection error.");
+	                $("#msg").show();
+	            });
+	            
+            } else {
+                if ($("#name").val()=="") {
+                    $("#name").attr('placeholder', 'Required');
+                    $("#name").focus();
+                    return false;
+                }
+                else if ($("#lastname").val()=="") {
+                    $("#lastname").attr('placeholder', 'Required');
+                    $("#lastname").focus();
+                    return false;
+                }
+              
+                else if ($("#id_username").val()=="") {
+                    $("#id_username").attr('placeholder', 'Required');
+                    $("#id_username").focus();
+                    return false;
+                }
+                 else if ($("#email").val()=="") {
+                    $("#email").attr('placeholder', 'Required');
+                    $("#email").focus();
+                    return false;
+                }
+                 else if ($("#password").val()=="") {
+                    $("#password").attr('placeholder', 'Required');
+                    $("#password").focus();
+                    return false;
+                }
+                 else if ($("#password2").val()=="") {
+                    $("#password2").attr('placeholder', 'Required');
+                    $("#password2").focus();
+                    return false;
+                }
+                 else if ($("#pin").val()=="") {
+                    $("#pin").attr('placeholder', 'Required');
+                    $("#pin").focus();
+                    return false;
+                }
+            }
+            
+            $(document).on("click", ".show-page-loading-msg", function () {
+                var $this = $(this),
+                        theme = $this.jqmData("theme") || $.mobile.loader.prototype.options.theme,
+                        msgText = $this.jqmData("msgtext") || $.mobile.loader.prototype.options.text,
+                        textVisible = $this.jqmData("textvisible") || $.mobile.loader.prototype.options.textVisible,
+                        textonly = !!$this.jqmData("textonly");
+                html = $this.jqmData("html") || "";
+                $.mobile.loading("show", {
+                    text: msgText,
+                    textVisible: textVisible,
+                    theme: theme,
+                    textonly: textonly,
+                    html: html
+                });
+            })
+            .on("click", ".hide-page-loading-msg", function () {
+                $.mobile.loading("hide");
+            });
+
+		});
+	})
+	</script> 
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>	
+ 	<script src="js/camera.js"></script>
+	
+
+</body>
+</html>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Nago App | Profile</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/profile.css">
+	<link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css">
+	<link rel="stylesheet" href="css/circle.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/config_var.js"></script>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+
+
+	<script>	
+		
+		$('body').ready(function() {
+            var request = $.ajax({
+                url: serverURL+"viewProfileSelf/",
+				method: "POST",
+                // dataType: "text",                    
+                data: {id: localStorage['user_id'], app: 'N4g04pp'}       
+			});
+
+			request.done(function(data) {  
+	        	localStorage['user_fullname'] = data.fullname;
+	        	localStorage['user_name'] = data.name;
+	        	localStorage['user_lastname'] = data.lastname;
+	        	localStorage['user_telephone'] = data.telephone;
+	        	localStorage['user_email'] = data.email;
+	        	localStorage['user_description'] = data.description;
+	        	localStorage['user_birthdate'] = data.birthdate;
+	        	date = localStorage['user_birthdate'];
+				var listDate = date.split("/");
+				var d = listDate[2];
+				var mm = listDate[1];
+				var yyy = listDate[0];
+				// alert(d+'-'+mm+'-'+yyy)
+				$('#user_birthdate_form').val(yyy+'-'+mm+'-'+d);
+
+				$("#user_telephone_form").val(localStorage['user_telephone']); 
+
+				$("#user_description_form").val(localStorage['user_description']); 
+
+				$("#user_email_form").val(localStorage['user_email']); 		
+
+				$("#user_lastname_form").val(localStorage['user_lastname']);
+
+				$("#user_name_form").val(localStorage['user_name']);
+			});
+	        request.fail(function (jqXHR, textStatus) {
+                   alert('error conexion');
+                });
+		});
+	</script>
+
+</head>
+
+<body>
+	<div data-role="page"> 	
+		<!-- MENU -->
+	 
+		<div data-role="panel" id="menu" data-display="overlay" data-position="right">
+		 	<!-- llamada al Final con Load() -->
+		</div>
+		
+		<div id="header" data-role="header" data-position="fixed" data-tap-toggle="false" class="header-menu">	
+		<!-- llamada al Final con Load() -->	
+		</div>
+
+			<!-- FOTO PERFIL Y PORCENTAJES -->
+
+		<div data-role="content padding-none">			
+			<div class="content-rmenu-upper">			
+				<div class="ui-grid-b white-text">
+					<div class="ui-block-a grid-width-10">	
+					</div>
+					<div class="ui-block-b grid-width-80 align-center ">				
+						<p class="margin-bottom-none" id="user_fullname">
+							<script>
+								$('#user_fullname  ').html(localStorage['user_fullname']);
+							</script></p>
+						<p class="font-size-08 margin-none" id="id_description"></p>
+						<script>
+							if (localStorage["user_description"] != "nul") {
+								$("#id_description").html(localStorage["user_description"]);
+							}
+						</script>	
+					</div>
+					<div class="ui-block-c grid-width-10">
+						
+					</div>
+				</div>
+				
+				
+				<div class="ui-grid-b margin-top-6">
+					<div class="ui-block-a grid-width-10">			
+					</div>
+					<div class="ui-block-b grid-width-80">
+
+						<div class="ui-grid-b white-text">
+							<div class="ui-block-a align-center ">
+								<img src="img/markus.png" alt="" class="img-responsive img-profile-mini">
+								<p class="margin-none font-size-08">AVAILABLE</p>
+								<p class="margin-top-none font-size-08" id="head_available"></p>
+							</div>
+							<div class="ui-block-b align-center">
+							
+								<!-- Circulo de porcentaje -->
+								<div  class="c100 p65 big line-block">
+								    <span class="white-text"><span>10</span>%</span>
+								    <div class="slice">
+								        <div class="bar"></div>
+								        <div class="fill"></div>
+								    </div>
+								</div>					
+
+								<p class="margin-none font-size-08">LOCKED</p>
+								<p class="margin-top-none font-size-08" id="head_locked"></p>
+							</div>
+							<div class="ui-block-c align-center">
+								
+								<!-- Circulo de porcentaje -->
+								<div  class="c100 p75 big line-block">
+								    <span class="white-text"><span>75</span>%</span>
+								    <div class="slice">
+								        <div class="bar"></div>
+								        <div class="fill"></div>
+								    </div>
+								</div>
+
+								<p class="margin-none font-size-08">INVEST</p>
+								<p class="margin-top-none font-size-08" id="head_invest"></p>
+							</div>
+						</div>	
+						<script>
+							$("#head_available").html(localStorage["user_available"]+"$");
+							$("#head_locked").html(localStorage["user_locked"]+"$");
+							$("#head_invest").html(localStorage["user_invest"]+"$");
+						</script>
+					</div>
+					<div class="ui-block-c grid-width-10 ">				
+					</div>
+				</div>
+
+			</div>
+
+			<!-- Profile Infomation -->
+			 <div class="content-block-small">
+			 	<div class="ui-grid-b">
+			 		<div class="ui-block-a grid-width-10">
+			 			
+			 		</div>
+			 		<div class="ui-block-b grid-width-80 font-size-08 orange-text">
+			 			<p >PROFILE INFORMATION</p>
+
+			 		</div>
+			 		<div class="ui-block-c grid-width-10 margin-top-5">
+			 			<img src="img/pen.png"  class="icon-size-80" alt="" id="pencil">
+			 		</div>
+			 	</div>
+
+
+			 <!-- DETAIL Profile Infomation -->
+			 	
+				<div class="ui-grid-b padding-left-right-30">
+					<div class="ui-bloc-a"></div>
+					<div class="ui-bloc-b">
+					<!--  -->
+
+					<div class="ui-grid-solo grid-margin-bottom">
+						<div class="ui-block-a">
+							<label for="text-basic">Username:</label>
+							<input class="input-profile" id="user_username_form" readonly="readonly">
+			 			
+			 			<script>			 			 
+				 			$("#user_username_form").val(localStorage['user_username']) ;
+				 		</script>
+						</div>
+					</div>
+
+					<div class="ui-grid-solo grid-margin-bottom">
+						<div class="ui-block-a">
+							<label for="text-basic">Name:</label>
+							<input class="input-profile" id="user_name_form" readonly="readonly">
+						</div>
+					</div>
+
+					<div class="ui-grid-solo grid-margin-bottom">
+						<div class="ui-block-a">
+							<label for="text-basic">lastname:</label>
+							<input class="input-profile" id="user_lastname_form" readonly="readonly">
+						</div>
+					</div>
+
+					<div class="ui-grid-solo grid-margin-bottom">
+						<div class="ui-block-a">
+							<hr class="line-divide">
+						</div>
+					</div>
+
+					<div class="ui-grid-solo grid-margin-bottom">
+						<div class="ui-block-a">
+							<label for="text-basic">Email:</label>
+							<input class="input-profile" id="user_email_form" readonly="readonly">
+
+				 			
+						</div>
+					</div>
+					
+					<div class="ui-grid-solo grid-margin-bottom">
+						<div class="ui-block-a">
+							<label for="text-basic">Telephone:</label>
+							<input type="number" class="input-profile" id="user_telephone_form" pattern="[0-9]*" type="text" readonly="readonly">
+						</div>
+					</div>
+
+					<div class="ui-grid-solo grid-margin-bottom">
+						<div class="ui-block-a">
+							<label for="date">Birthdate:</label>
+							<input type="date" name="date" id="user_birthdate_form" value="" readonly="readonly">
+							<script>
+								// $(document).ready(function() {
+								// 	if(localStorage['user_birthdate'].includes('/')) {
+								// 		date = localStorage['user_birthdate'];
+								// 		var listDate = date.split("/");
+								// 		var d = listDate[2];
+								// 		var mm = listDate[1];
+								// 		var yyy = listDate[0];
+								// 		// alert(d+'-'+mm+'-'+yyy)
+								// 		$('#user_birthdate_form').val(yyy+'-'+mm+'-'+d);
+								// 		// alert(localStorage['user_birthdate']);
+								// 	}
+								// }); 
+							</script>
+						</div>
+					</div>
+					
+					<div class="ui-grid-solo grid-margin-bottom">
+						<div class="ui-block-a">
+							<hr class="line-divide">
+						</div>
+					</div>
+					
+					<div class="ui-grid-solo grid-margin-bottom">
+						<div class="ui-block-a">
+							<label for="text-basic">University:</label>
+							<input class="input-profile" id="user_university_form" readonly="readonly">
+
+				 			<!-- <label for="select-choice-a" class="select">University:</label>
+							<select name="select-choice-a" id="select-choice-a" data-native-menu="false">
+							    <option>University of Alabama System</option>
+							    <option value="standard">University of California, Berkeley</option>
+							    <option value="rush">University of California, Davis</option>
+							    <option value="express">University of California, Irvine</option>
+							    <option value="overnight">California State Polytechnic University, Pomona</option>
+							</select> -->
+						</div>
+					</div>
+
+					<div class="ui-grid-solo grid-margin-bottom">
+						<div class="ui-block-a">
+							<label for="text-basic">Faculty:</label>
+							<input class="input-profile" id="user_faculty_form" readonly="readonly">
+				 		</div>
+					</div>
+
+					<div class="ui-grid-solo grid-margin-bottom">
+						<div class="ui-block-a">
+							<label for="text-basic">Description:</label>
+							<input class="input-profile" id="user_description_form" readonly="readonly">
+						</div>
+					</div>
+					
+					<div class="ui-grid-solo grid-margin-bottom">
+						<div class="ui-block-a">
+							<hr class="line-divide">
+						</div>
+					</div>
+
+					<div class="ui-grid-solo grid-margin-bottom">
+						<div class="ui-block-a">
+				 			<label for="select-choice-a" class="select">State:</label>
+							<select name="select-choice-a" id="select-choice-a" data-native-menu="false">
+							    <option>States</option>
+							    <option value="AL">Alabama</option>
+							    <option value="AK">Alaska</option>
+							    <option value="AZ">Arizona</option>
+							    <option value="AR">Arkansas</option>
+							    <option value="CA">California</option>
+							    <option value="CO">Colorado</option>
+							    <option value="CT">Connecticut</option>
+							    <option value="DE">Delaware</option>
+							    <option value="DC">District of Columbia</option>
+							    <option value="FL">Florida</option>
+							    <option value="GA">Georgia</option>
+							    <option value="HI">Hawaii</option>
+							    <option value="ID">Idaho</option>
+							    <option value="IL">Illinois</option>
+							    <option value="IN">Indiana</option>
+							    <option value="IA">Iowa</option>
+							    <option value="KS">Kansas</option>
+							    <option value="KY">Kentucky</option>
+							    <option value="LA">Louisiana</option>
+							    <option value="ME">Maine</option>
+							    <option value="MD">Maryland</option>
+							    <option value="MA">Massachusetts</option>
+							    <option value="MI">Michigan</option>
+							    <option value="MN">Minnesota</option>
+							    <option value="MS">Mississippi</option>
+							    <option value="MO">Misuri</option>
+							    <option value="MT">Montana</option>
+							    <option value="NE">Nebraska</option>
+							    <option value="NV">Nevada</option>
+							    <option value="NH">New Hampshire</option>
+							    <option value="NJ">New Jersey</option>
+							    <option value="NM">New Mexico</option>
+							    <option value="NY">New York</option>
+							    <option value="NC">North Carolina</option>
+							    <option value="ND">North Dakota</option>
+							    <option value="OH">Ohio</option>
+							    <option value="OK">Oklahoma</option>
+							    <option value="OR">Oregon</option>
+							    <option value="PA">Pennsylvania</option>
+							    <option value="RI">Rhode Island</option>
+							    <option value="SC">South Carolina</option>
+							    <option value="SD">South Dakota</option>
+							    <option value="TN">Tennessee</option>
+							    <option value="TX">Texas</option>
+							    <option value="UT">Utah</option>
+							    <option value="VT">Vermont</option>
+							    <option value="VA">Virginia</option>
+							    <option value="WA">Washington</option>
+							    <option value="WV">West Virginia</option>
+							    <option value="WI">Wisconsin</option>
+							    <option value="WY">Wyoming</option>
+							    
+							</select>
+						</div>
+					</div>
+					<!--  -->
+					</div>
+					<div class="ui-bloc-c"></div>
+				</div>
+			 </div>
+		
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			<button id="save_changes" type="button" class="ui-btn ui-corner-all btn-block btn-red-a">SAVE CHANCES</button>
+			<!-- <a href="main.html"  data-transition="slidefade" rel="external" class="btn-red">SIGN IN</a> -->
+		</div>
+	</div>	
+
+	 <script>
+			$("#menu").load('menu.html');
+			$("#header").load('header.html');
+	</script>	
+ 			 			 
+	
+	<script>
+		
+
+		// 		Habilitar o deshabilitar los Inputs
+		var bandera = true;
+
+		$('#pencil').click(function() {
+			if(bandera) {
+				$('#user_name_form').removeClass("input-profile");
+				$('#user_name_form').addClass("input-profile-edit");	
+				$('#user_name_form').removeAttr("readonly");
+
+				$('#user_telephone_form').removeClass("input-profile");
+				$('#user_telephone_form').addClass("input-profile-edit");	
+				$('#user_telephone_form').removeAttr("readonly");
+
+				$('#user_lastname_form').removeClass("input-profile");
+				$('#user_lastname_form').addClass("input-profile-edit");	
+				$('#user_lastname_form').removeAttr("readonly");
+
+				$('#user_birthdate_form').removeAttr("readonly");
+
+				$('#user_email_form').removeClass("input-profile");
+				$('#user_email_form').addClass("input-profile-edit");	
+				$('#user_email_form').removeAttr("readonly");
+
+				$('#user_description_form').removeClass("input-profile");	
+				$('#user_description_form').addClass("input-profile-edit");	
+				$('#user_description_form').removeAttr("readonly");
+				
+
+				bandera = false;
+			} else {
+
+				$('#user_name_form').removeClass("input-profile-edit");
+				$('#user_name_form').addClass("input-profile");	
+				$('#user_name_form').attr("readonly", "readonly");
+
+				$('#user_telephone_form').removeClass("input-profile-edit");
+				$('#user_telephone_form').addClass("input-profile");	
+				$('#user_telephone_form').attr("readonly", "readonly");
+
+				$('#user_lastname_form').removeClass("input-profile-edit");
+				$('#user_lastname_form').addClass("input-profile");	
+				$('#user_lastname_form').attr("readonly", "readonly");
+
+				$('#user_birthdate_form').attr("readonly", "readonly");
+
+				$('#user_email_form').removeClass("input-profile-edit");	
+				$('#user_email_form').addClass("input-profile");
+				$('#user_email_form').attr("readonly", "readonly");
+
+				$('#user_description_form').removeClass("input-profile-edit");	
+				$('#user_description_form').addClass("input-profile");
+				$('#user_description_form').attr("readonly", "readonly");
+
+				bandera = true;
+			}
+		});
+
+		console.log(localStorage['user_id'])
+		function hideMsg() {
+			 // $.mobile.loading("show");
+			 $('#msg').hide('fast');
+		}
+
+		$('#save_changes').click(function() {
+			if (!bandera &&  $("#user_username_form").val() != "" && $("#user_name_form").val() != "" && $("#user_lastname_form").val() != "" && $("#user_email_form").val()!= "") {
+				var request = $.ajax({
+                    url:serverURL+"editProfile/",
+                    method: "POST",
+                    data: { username: $("#user_username_form").val(),
+                     		name: $("#user_name_form").val(),
+                     		lastname: $("#user_lastname_form").val(),
+                     		telephone: $("#user_telephone_form").val(),
+                      		birthdate   : $("#user_birthdate_form").val(),
+                      		email   : $("#user_email_form").val(),
+                      		description   : $("#user_description_form").val(),
+                       		app     : 'N4g04pp'}
+
+                    //dataType: "text",
+                    // contentType: 'multipart/form-data; charset=UTF-8'
+                });
+                request.done(function (data) {                         				
+					if (data == true) {	
+                    	data = JSON.parse(data);
+	                    document.location.href = "profile.html";
+                    } else {
+                    	alert("No se Hicieron los Cambios")
+                        // $('#msg').html('Upload Fail..!').show('fast');
+                        // $.mobile.loading("hide");
+                    }
+                });
+                
+                request.fail(function (jqXHR, textStatus) {
+                    $("#msg").html("Error de conexión.");
+                    $("#msg").show();
+                });
+                
+            } else if (!bandera){
+                if ($("#id_username_form").val()=="") {
+                    $("#id_username_form").attr('placeholder', 'Required');
+                    $("#id_username_form").focus();
+                    return false;
+                }
+                
+                else if ($("#user_email_form").val()=="") {
+                    $("#user_email_form").attr('placeholder', 'Required');
+                    $("#user_email_form").focus();
+                    return false;
+                }
+
+                else if ($("#user_description_form").val()=="") {
+                    $("#user_description_form").attr('placeholder', 'Required');
+                    $("#user_description_form").focus();
+                    return false;
+                }
+            }
+            
+            $(document).on("click", ".show-page-loading-msg", function () {
+                var $this = $(this),
+                    theme = $this.jqmData("theme") || $.mobile.loader.prototype.options.theme,
+                    msgText = $this.jqmData("msgtext") || $.mobile.loader.prototype.options.text,
+                    textVisible = $this.jqmData("textvisible") || $.mobile.loader.prototype.options.textVisible,
+                    textonly = !!$this.jqmData("textonly");
+                	html = $this.jqmData("html") || "";
+                	
+                $.mobile.loading("show", {
+                    text: msgText,
+                    textVisible: textVisible,
+                    theme: theme,
+                    textonly: textonly,
+                    html: html
+                });
+            })
+            .on("click", ".hide-page-loading-msg", function () {
+                $.mobile.loading("hide");
+            });
+
+		});
+
+	</script>
+
+</body>
+</html>

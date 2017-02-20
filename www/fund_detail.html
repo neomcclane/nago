@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Nago App | Fund Detail</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/fund_detail.css">
+	<link rel="stylesheet" href="css/linkstyles.css"> 
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+	<script src="js/config_var.js"></script>
+
+	
+	<script>
+		function calculoFuturo(presente) {
+			var interes = parseInt(localStorage['loan_interest']) / 100;
+			var periodo = parseInt(localStorage['loan_date_return']);
+			
+			var futuro = presente - (-(presente * interes * periodo/360));
+			console.log('futuro: '+futuro);
+			console.log('interes: '+interes);
+			console.log('periodo: '+periodo);
+			console.log('presente: '+presente);
+			return futuro.toString();
+		}
+
+	</script>
+
+</head>
+
+<body>
+	<div data-role="page"> 	
+
+		<div data-role="panel" id="menu" data-display="overlay" data-position="right">
+		 	<!-- llamada al Final con Load() -->
+		</div>
+		
+		<div id="header" data-role="header" data-position="fixed" data-tap-toggle="false" class="header-menu">	
+		<!-- llamada al Final con Load() -->	
+		</div>
+	 
+ 
+		
+		<div data-role="content padding-none" style="margin-top: -2px;">			
+			<div>
+				<div class="content-rmenu-upper">
+					<div class="ui-grid-b">
+						<div class="ui-block-a grid-width-10">
+							
+						</div>
+						<div class="ui-block-b grid-width-80 align-center">
+							<div class="ui-grid-solo">
+								<div class="ui-block-a">
+									<p class="title-page">FUND DETAIL</p>
+								</div>
+							</div>
+
+						</div>
+						<div class="ui-block-c grid-width-10">
+							
+						</div>
+					</div>
+
+					<div class="ui-grid-b">
+						<div class="ui-block-a grid-width-10">
+							
+						</div>
+
+						<div class="ui-block-b grid-width-80 ">
+							<div class="ui-grid-solo">
+								<div class="ui-block-a">
+									<div class="line-white">
+										<div class="line-orange">
+											<p id="loan_amount_available" class="info-cash"><strong>120$</strong></p>
+											<script>
+								$("#loan_amount_available").text(localStorage['loan_amount_available']);
+								console.log(localStorage['loan_amount_available'])
+							</script>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="ui-grid-solo">
+								<div class="ui-block-a align-center">
+									<p  id="loan_date_created" class="text-small"></p>
+									<script>
+										$("#loan_date_created").text(localStorage['loan_date_created']);
+										console.log(localStorage['loan_date_created'])
+									</script>
+								</div>
+							</div>
+
+							<div class="ui-grid-a quads">
+								<div class="ui-block-a align-center">
+									<p class="text-info-small">PERIOD OF RETURN</p>
+								</div>
+								<div class="ui-block-b align-center border-left">
+									<p id="loan_date_return" class="text-info-small"></p>
+									<script>
+										$("#loan_date_return").text(localStorage['loan_date_return']);
+										console.log(localStorage['loan_date_return'])
+									</script>					
+								</div>
+							</div>
+
+							<div class="ui-grid-a quads">
+								<div class="ui-block-a align-center">
+									<p class="text-info-small">DEADLINE</p>
+								</div>
+								<div class="ui-block-b align-center border-left">
+									<p id="loan_date_expiration" class="text-info-small"></p>
+									<script>
+										$("#loan_date_expiration").text(localStorage['loan_date_expiration']);
+										console.log(localStorage['loan_date_expiration'])
+									</script>	
+								</div>
+							</div>
+						</div>
+
+						<div class="ui-block-c grid-width-10">
+							
+						</div>
+					</div>
+					
+					<div class="ui-grid-b ">
+						<div class="ui-block-a grid-width-30 align-center">
+							<p class="margin-auto " style="text-height:1 !important;"> <span class="text-info-menu ">AMOUNT NEEDED</span> <br> <span id="loan_amount_request" class="cash-info-menu">200$</span></p>
+							<script>
+								$("#loan_amount_request").text(localStorage['loan_amount_request']+'$');
+								
+							</script>	
+						</div>
+						<div class="ui-block-b grid-width-40">
+							
+							<div class="ui-grid-solo ">
+								<div class="ui-block-a align-center">
+									<img src="img/perfil0.png" alt="" class="img-responsive img-profile">
+								</div>
+							</div>
+						</div>
+						<div class="ui-block-c grid-width-30 align-center">
+							<p class="margin-auto " style="text-height:1 !important;"> <span class="text-info-menu">INTEREST RETURN</span> <br> <span id="loan_interest" class="cash-info-menu">20$</span></p>
+							<script>
+								$("#loan_interest").text(localStorage['loan_interest']+'%');
+								
+							</script>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			
+			<div class="ui-grid-b" style="margin-top: -10px !important;">
+				<div class="ui-block-a grid-width-30 align-center">
+					<p class="margin-auto " style="text-height:1 !important;"> <span class="text-info-orange ">INVESTORS</span> <br> <span id="loan_invertors" class="cash-info-orange">3</span></p>
+					<script>
+						$("#loan_invertors").text(localStorage['loan_invertors']);
+						console.log(localStorage['loan_invertors'])
+					</script>
+				</div>
+				<div class="ui-block-b grid-width-40">
+					
+				</div>
+				<div class="ui-block-c grid-width-30 align-center">
+					<p class="margin-auto " style="text-height:1 !important;"> <span class="text-info-orange ">ANNUAL INTEREST</span> <br> <span class="cash-info-orange">10.0%</span></p>
+				</div>
+			</div>
+			
+			<div class="ui-grid-b">
+				<div class="ui-block-a grid-width-20">
+					
+				</div>
+				<div class="ui-block-b grid-width-60 align-center">
+					<p id="loan_fullname" class="text-info">Sebastiana Black</p>					
+					 <p id="loan_comment" class="font-size-07"></p>
+					<script>
+						$("#loan_fullname").text(localStorage['loan_fullname']);
+						console.log(localStorage['loan_fullname'])						
+						$("#loan_comment").text(localStorage['loan_comment']);
+						console.log(localStorage['loan_comment'])
+					</script>
+				</div>
+				<div class="ui-block-c grid-width-20">					
+				</div>
+			</div>	
+
+			<div class="ui-grid-b">
+				<div class="ui-block-a grid-width-10">
+					
+				</div>
+				<div class="ui-block-b grid-width-80 align-center">
+					<div class="ui-grid-solo">
+						<div class="ui-block-a">
+							<hr>
+							<p class="text-small-info">How much i can finance</p>
+						</div>
+					</div>
+					
+					<div class="ui-grid-b">
+					<div class="ui-block-a grid-width-10">
+						
+					</div>
+					<div class="ui-block-b grid-width-80 ">
+						
+						<p id="textInput">0</p>
+						<input class="" type="range" name="slider-10" id="slider-10" min="0" max="100" value="0" onchange="updateTextInput(this.value);">
+						<script>
+							if (parseInt(localStorage["user_available"]) >= parseInt(parseInt(localStorage["loan_amount_request"]))) {
+								document.getElementById("slider-10").max = localStorage["loan_amount_request_bar"];
+							} else {
+								document.getElementById("slider-10").max = localStorage["user_available"];
+							}
+								
+						</script>
+						<hr>
+							
+						
+
+					</div>
+					<div class="ui-block-c grid-width-10">
+						
+					</div>
+				</div>
+
+					<div class="ui-grid-solo" style="margin-bottom:40px;">
+						<div class="ui-block-a align-center">
+							<button id="calculate" class="ui-btn btn-orange">CALCULATE</button>
+
+						</div>
+					</div>
+				</div>
+				<div class="ui-block-c grid-width-10">
+					
+				</div>
+			</div>
+			
+		</div>
+
+		<div class="footer" data-role="footer" data-position="fixed" data-tap-toggle="false">
+		<!-- 	<button class="ui-btn ui-corner-all btn-block bt-footer">INVEST</button> -->
+		<a href="#" class="btn-red" id="btn-invest">INVEST</a>
+		</div>
+	</div>	
+	<a id='lnkDialog' href="#dialog" data-rel="dialog" data-transition="flip" style='display:none;'></a>
+							<!--  -->
+
+							<div data-role="page" id="main">
+								
+							</div>
+							<div data-role="page" id="dialog">
+								<div data-role="header">
+									<h1>Information</h1>
+								</div>    
+								<div data-role="content" id="text">
+									<div class="content-fluid-f">
+										<div class="row-f">
+											<div class="col-xs-6-f">
+												<p class="text-modal-apply">Amount: </p>
+											</div>
+											<div class="col-xs-6-f">
+												<p id="amount_modal"></p>
+											</div>
+										</div>
+										<div class="row-f">
+											<div class="col-xs-12-f">
+												<!--<button id="send_data">Ok</button>	-->										
+											</div>
+										</div>
+									</div>
+
+								</div>    
+							</div>
+							<!--  -->
+							
+
+	<script>
+		$('#calculate').click(function() {
+			$('#amount_modal').text(calculoFuturo(document.getElementById("slider-10").value));
+			$('#lnkDialog').click();
+		});
+		function updateTextInput(val) {
+	       	document.getElementById('textInput').innerHTML=val.toString(); 
+	    }
+	    $("#menu").load('menu.html');
+		$("#header").load('header.html');
+
+		$('#btn-invest').click(function() {
+			if($('#slider-10').val() > 0) {
+				var request = $.ajax({
+			        url: serverURL+"lendingSolicitude/",
+			        method: "POST",
+			        data:{
+							id   			: localStorage['user_id'],
+							id_loand 	    : localStorage['loan_id_she'],
+							amount  		: calculoFuturo(document.getElementById("slider-10").value), 
+							interest        : localStorage['loan_interest'],	            	
+			            	app     		: 'N4g04pp'            	 
+			            },
+			        //dataType: "text",
+			        //contentType: 'text/plain; charset=UTF-8'
+			    });
+			    
+			    request.done(function(data) { 
+			    	if (!data['send']){
+			    		localStorage['loan_amount_available'] = data['amount_available'];
+			    		localStorage["user_available"] = data['amount_available'];
+			    		localStorage['user_invest'] = data['amount_invested'];
+			    		localStorage["menu_locked"] = data['amount_locked'];
+			    		//localStorage["user_available"] = data['amount_available'];
+			    		alert("solicitud Creada Con Exito..!")
+			    		console.log("solicitud Creada Con Exito..!")
+			    		document.location.href = "main.html";
+			    	}
+			    	else{
+			    		console.log("No se Puedo crear la solicitud")
+			    	}
+			    });
+			} else {
+				alert('ingrese algun monto');
+			}
+		});
+	</script>		
+</body>
+</html>

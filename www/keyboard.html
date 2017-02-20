@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+	<title>Nago App | KeyBoard</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<link rel="stylesheet" href="css/linkstyles.css"> 
+	<script src="js/config_var.js"></script>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+</head> 
+ 
+<body>	
+	<div data-role="page" class="bg-color padding-none"> 		
+		
+		<div data-role="content" class="full-height">	
+			 
+			 <!-- MENU SUPERIOR -->
+			<div data-role="header" data-position="fixed" class="header-menu bg-color" data-tap-toggle="false">
+				<div class="ui-grid-a menu-top">
+					<div class="ui-block-a align-left">
+						<a href="login.html" rel="external" class="icon-menu-a"><img class="icon-menu" src="img/Leftarrow.png" alt=""></a>
+						<img class="icon-menu-logo" src="img/logo-small.png" alt="">
+					</div>				
+				</div>
+			</div>
+			<!--  -->
+			
+				 
+			<div class="ui-grid-b margin-top-10">
+				<div class="ui-block-a grid-width-10">				
+				</div>
+				<div class="ui-block-b grid-width-80 white-text align-center">	
+					<p>GET IN WITH YOUR SPECIAL KEY</p>				 
+					<p id="userEmail" class="font-size-08"></p>		
+					<script>
+						$('#userEmail').html(localStorage['user_email']);
+					</script>
+				</div>
+				<div class="ui-block-c grid-width-10">					
+				</div>
+			</div> 
+
+		
+
+
+			<div class="ui-grid-b margin-top-10">
+				<div class="ui-block-a grid-width-10">				
+				</div>
+				<div class="ui-block-b grid-width-80 white-text align-center">	
+
+						<div class="ui-grid-c ">					
+							<div class="ui-block-a grid-width-26 border-color hr-line margin-side">
+								<input class="num1 bg-color white-text align-center" type="text" disabled>
+							</div>
+							<div class="ui-block-b grid-width-26 border-color hr-line margin-side" >
+								<input class="num2 bg-color white-text align-center" type="text" disabled>	
+							</div>
+							<div class="ui-block-c grid-width-26 border-color hr-line margin-side">
+								<input class="num3 bg-color white-text align-center" type="text" disabled>	
+							</div>
+							<div class="ui-block-d grid-width-26 border-color hr-line margin-side">
+								<input class="num4 bg-color white-text align-center" type="text" disabled>				
+							</div>
+
+						</div>
+
+				</div>
+				<div class="ui-block-c grid-width-10">					
+				</div>
+			</div> 
+
+
+ 			<div class="ui-grid-b margin-top-10 ">
+				<div class="ui-block-a grid-width-10">				
+				</div>
+				<div class="ui-block-b grid-width-80 white-text align-center">	
+
+						<div class="ui-grid-b ">					
+							<div class="ui-block-a grid-width-33">
+								<button class="keybutton white-text font-size-15 margin-none">1</button>  
+							</div>
+							<div class="ui-block-b grid-width-33">
+								<button class="keybutton white-text font-size-15 margin-none">2</button>  	
+							</div>
+							<div class="ui-block-c grid-width-33">
+								<button class="keybutton white-text font-size-15 margin-none">3</button>  
+							</div>							 
+						</div>
+				</div>
+				<div class="ui-block-c grid-width-10">					
+				</div>
+			</div> 
+			<div class="ui-grid-b">
+				<div class="ui-block-a grid-width-10">				
+				</div>
+				<div class="ui-block-b grid-width-80 white-text align-center">	
+
+						<div class="ui-grid-b">					
+							<div class="ui-block-a grid-width-33">
+								<button class="keybutton white-text font-size-15 margin-none">4</button>  
+							</div>
+							<div class="ui-block-b grid-width-33">
+								<button class="keybutton white-text font-size-15 margin-none">5</button>  	
+							</div>
+							<div class="ui-block-c grid-width-33">
+								<button class="keybutton white-text font-size-15 margin-none">6</button>  
+							</div>							 
+						</div>
+				</div>
+				<div class="ui-block-c grid-width-10">					
+				</div>
+			</div> 
+			<div class="ui-grid-b ">
+				<div class="ui-block-a grid-width-10">				
+				</div>
+				<div class="ui-block-b grid-width-80 white-text align-center">	
+
+						<div class="ui-grid-b">					
+							<div class="ui-block-a grid-width-33">
+								<button class="keybutton white-text font-size-15 margin-none">7</button>  
+							</div>
+							<div class="ui-block-b grid-width-33">
+								<button class="keybutton white-text font-size-15 margin-none">8</button>  	
+							</div>
+							<div class="ui-block-c grid-width-33">
+								<button class="keybutton white-text font-size-15 margin-none">9</button>  
+							</div>							 
+						</div>
+				</div>
+				<div class="ui-block-c grid-width-10">					
+				</div>
+			</div> 
+				<div class="ui-grid-b ">
+				<div class="ui-block-a grid-width-10">				
+				</div>
+				<div class="ui-block-b grid-width-80 white-text align-center ">	
+						<div class="ui-grid-b ">					
+							<div class="ui-block-a grid-width-33">
+								<button class="keybutton white-text font-size-15 margin-none" disabled></button>  
+							</div>
+							<div class="ui-block-b grid-width-33">
+								<button class="keybutton white-text font-size-15 margin-none" >0</button>  	
+							</div>
+							<div class="ui-block-c grid-width-33">
+								<button class="keybutton white-text font-size-15 margin-none"><</button>  
+							</div>							 
+						</div>
+				</div>
+				<div class="ui-block-c grid-width-10">					
+				</div>
+			</div>
+
+		<!-- <p class="white-text align-center font-size-08 margin-top-10">USE PASSWORD</p> -->
+		<!-- Alert red -->
+		<div class="ui-grid-solo">
+			<div class="ui-block-a align-center ">
+				<span id="msg"style="display:none; color:#dc5e4a; margin-top:20px;"></span>
+			</div>
+		</div>
+		<!-- /Alert red -->
+				
+		</div>    
+	 
+	
+		<div data-role="footer" data-position="fixed">
+			<button id="continue" type="submit" class="ui-btn ui-corner-all btn-block btn-red-a">CONTINUE</button>
+	
+		</div>
+
+	</div> 	 <!--  PAGE END  -->
+	<script>
+	 var keycode = [];
+	 var counter = 0;
+
+	 $(document).ready(function() {
+	 	if (localStorage.getItem('user_username') == null) {
+	 		document.location.href = 'login.html';
+	 	}
+	 });
+
+	 $('#continue').click(function() {
+	 	// 
+	 	var request = $.ajax({
+            url: serverURL+"validatePin/",
+            method: "POST",
+            data: {id: localStorage['user_id'], pin: keycode.join(''), app: 'N4g04pp'}
+            //dataType: "text",
+            //contentType: 'text/plain; charset=UTF-8'
+        });
+        
+        request.done(function(data) {                    
+         	console.log(data);					
+        	if (data == true) {
+        		document.location.href = "main.html";
+        	} 
+        	else {
+        		$('#msg').html('Incorrect PIN.').show('fast');
+                $.mobile.loading("hide");
+        	}
+        });
+        
+        request.fail(function (jqXHR, textStatus) {
+            $('#msg').html('Connection error.').show('fast');
+            $.mobile.loading("hide");
+        });
+	 	// 
+	 });
+
+	 $('.keybutton').on('touchstart',function() {
+	 	$('#msg').hide();
+	 	boton = $(this).text();
+
+	 	if (boton == "<"){
+	 		if (keycode.length > 0 ){
+		 		keycode.pop(boton);
+		 		console.log(keycode);
+			 		counter--;
+		 			console.log(counter);
+		 	}
+
+	 	}else{
+		 	if (keycode.length >= 0 && keycode.length < 4){
+		 		keycode.push(Number(boton));
+		 		console.log(keycode);
+		 		counter++;
+		 		console.log(counter);
+		 	}			 	
+	 	}
+	 	
+
+		if (counter == 1){
+			console.log("agregando");
+			$(".num1").val("*");
+		}else{
+			$(".num1").val(" ");
+		}
+		if (counter == 2){
+			console.log("agregando");
+			$(".num1").val("*");
+			$(".num2").val("*");
+		}else{
+			$(".num2").val(" ");
+		}
+		if (counter == 3){
+			console.log("agregando");
+			$(".num1").val("*");
+			$(".num2").val("*");
+			$(".num3").val("*");
+		}else{
+			$(".num3").val(" ");
+		}
+		if (counter == 4){
+			console.log("agregando");
+			$(".num1").val("*");
+			$(".num2").val("*");
+			$(".num3").val("*");				
+			$(".num4").val("*");
+		}else{
+			$(".num4").val(" ");
+		}
+
+		if (keycode.length == 4){
+	 		console.log("enviando Mensaje");
+	 	} 
+	 
+	 })
+
+	</script>
+</body>
+</html>

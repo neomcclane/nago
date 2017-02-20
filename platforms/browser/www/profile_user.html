@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+	<title>Nago App | Profile_User</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<link rel="stylesheet" href="css/linkstyles.css">
+	<script src="js/config_var.js"></script>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+</head> 
+
+<div data-role="page" id="use_profile_page"> 	
+
+				<div data-role="header" data-position="fixed" class="header-menu bg-color" data-tap-toggle="false">
+					<div class="ui-grid-a menu-top">
+						<div class="ui-block-a align-left">
+							<a href="friends.html" rel="external" class="icon-menu-a"><img class="icon-menu" src="img/Leftarrow.png" alt=""></a>
+							<img class="icon-menu-logo" src="img/logo-small.png" alt="">
+						</div>				
+					</div>
+				</div>		 
+				
+				<div data-role="content padding-none" style="margin-top: -2px;">			
+					<div>
+						<div class="content-rmenu-upper">				
+					
+							<div class="ui-grid-b">
+								<div class="ui-block-a grid-width-10">					
+								</div>
+								<div class="ui-block-b grid-width-80 align-center  margin-top-10">
+									<p class="user_username name-menu-profile">Nombre</p>
+									<script>
+										$(".user_username").text(localStorage['profile_username']);
+									</script>
+								</div>
+								<div class="ui-block-c grid-width-10">					
+								</div>
+							</div>
+							
+							<div class="ui-grid-b">
+								<div class="ui-block-a grid-width-30">							 
+								</div>
+								<div class="ui-block-b grid-width-40">							
+									<div class="ui-grid-solo">
+										<div class="ui-block-a align-center">
+											<img src="img/perfil0.png" alt="" class="img-responsive img-profile">
+										</div>
+									</div>
+								</div>
+								<div class="ui-block-c grid-width-30">						 
+								</div>
+							</div>
+
+							<div class="ui-grid-b">
+								<div class="ui-block-a grid-width-10">					
+								</div>
+								<div class="ui-block-b grid-width-80 align-center">
+									<p id="profile_fullname" class="name-menu-profile">FullName</p>
+									<script>
+										$("#profile_fullname").text(localStorage['profile_fullname']);
+									</script>
+								</div>
+								<div class="ui-block-c grid-width-10">					
+								</div>
+							</div>
+
+
+						</div>
+					</div>	    
+		 
+					<div class="ui-grid-c">
+					 		<div class="ui-block-a grid-width-20"></div>
+					 		<div class="ui-block-b grid-width-30 font-size-08 margin-none">
+					 			<p >USERNAME</p>					 			
+					 		</div>
+					 		<div class="ui-block-c grid-width-40 font-size-08 margin-none ">
+					 			<p  class="user_username"></p>					 			
+					 			<script>
+									$(".user_username").text(localStorage['profile_username']);
+								</script>
+					 		</div>
+					 		<div class="ui-block-d grid-width-10"></div>
+					</div>
+
+					<div class="ui-grid-c">
+					 		<div class="ui-block-a grid-width-20"></div>
+					 		<div class="ui-block-b grid-width-30 font-size-08 margin-none">
+					 			<p >FULL NAME</p>					 			
+					 		</div>
+					 		<div class="ui-block-c grid-width-40 font-size-08 margin-none ">
+					 			<p  class="profile_fullname"></p>					 			
+					 			<script>			 			 
+						 			$(".profile_fullname").text(localStorage['profile_fullname']) ;
+						 		</script>
+					 		</div>
+					 		<div class="ui-block-d grid-width-10"></div>
+					 </div>
+
+					 <div class="ui-grid-c">
+					 		<div class="ui-block-a grid-width-20"></div>
+					 		<div class="ui-block-b grid-width-30 font-size-08 margin-none">
+					 			<p >EMAIL</p>					 			
+					 		</div>
+					 		<div class="ui-block-c grid-width-40 font-size-08 margin-none ">
+					 			<p  class="profile_email"></p>					 			
+					 			<script>			 			 
+						 			$(".profile_email").text(localStorage['profile_email']) ;
+						 		</script>
+					 		</div>
+					 		<div class="ui-block-d grid-width-10"></div>
+					 </div>
+
+					 <div class="ui-grid-c">
+					 		<div class="ui-block-a grid-width-20"></div>
+					 		<div class="ui-block-b grid-width-30 font-size-08 margin-none">
+					 			<p >DESCRIPTION</p>					 			
+					 		</div>
+					 		<div class="ui-block-c grid-width-40 font-size-08 margin-none ">
+					 			<p  class="profile_description"></p>					 			
+					 			<script>			 			 
+						 			$(".profile_description").text(localStorage['profile_description']) ;
+						 		</script>
+					 		</div>
+					 		<div class="ui-block-d grid-width-10"></div>
+					 </div>
+
+					 <div class="ui-grid-c">
+					 		<div class="ui-block-a grid-width-20"></div>
+					 		<div class="ui-block-b grid-width-30 font-size-08 margin-none">
+					 			<p >RANKING</p>					 			
+					 		</div>
+					 		<div class="ui-block-c grid-width-40 font-size-08 margin-none ">
+					 			<p  class="profile_ranking"></p>					 			
+					 			<script>			 			 
+						 			$(".profile_ranking").text(localStorage['profile_ranking']) ;
+						 		</script>
+					 		</div>
+					 		<div class="ui-block-d grid-width-10"></div>
+					 </div>
+
+					
+				</div>
+				
+				<div class="footer" data-role="footer" data-position="fixed" data-tap-toggle="false">
+				<button id="sendInvitation" class="ui-btn ui-corner-all btn-block btn-red-a">SEND INVITATIONS</button>
+ 
+				
+				<script>
+					console.log(localStorage['user_id'])
+					console.log(localStorage['profile_id'])
+					console.log(localStorage['profile_if_friend'])
+
+					// ESPERANDO MODIFICACION EN  ViewProfileUser para que funcione. debe mandarme el Profile_friend
+					if (localStorage['profile_if_friend'] == "false"){
+						$('#sendInvitation').show()
+					}else
+						$('#sendInvitation').hide()
+
+						// --------------------------------------------------------------------------------
+					
+				// Eviando Solicitud De Amistad..! despues de ver el perfil
+					$('#sendInvitation').click(function(){
+
+						var request = $.ajax({
+						                    url: serverURL+"sendInvitationFriend/",
+						                    method: "POST",		                            
+						                    data: {
+						                    	    id: localStorage['user_id'] ,
+						                            user_invitation_id:	localStorage['profile_id'],
+						                            app: 'N4g04pp'
+						                          }       
+						});
+								
+						request.done(function(data) { 
+							if (data == true){
+								console.log("estado de Solicitud : "+data)
+								alert("Invitacion Enviada..!")
+								document.location.href = "friends.html";
+							}else{
+							 	alert("Ya Se Encuentra Una Solicitud en Curso")
+							}
+						})
+					});
+				</script>
+
+				</div>
+			</div>
+
+
+
+
+</html>

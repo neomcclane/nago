@@ -1,0 +1,131 @@
+body {
+	margin: 0px !important;
+}
+
+.text-menu-right {
+	font-size: 0.8em;
+	margin-right: 10%;
+}
+
+.margin-top-15 {
+	margin-top: 10px !important;
+}
+
+.text-option-menu {
+	color: #35393c;
+	font-size: 0.7em;
+}
+
+.img-option-menu {
+	width: 40%;
+}
+
+.border-bottom {
+	border: solid;
+	border-width: 1px;
+	border-color: #35393c;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	border-width: 1px;
+	margin-top: 12px;
+}
+
+.nago-friends {
+	color: #73b3f9;
+	font-size: 0.9em;
+}
+
+
+.content-list-friends {
+	height: 300px;
+	// background-color: green;
+	overflow-y: scroll;
+	
+}
+
+.image-small-profile{
+	width: 60px;
+	border: solid;
+	background-color: #35393c !important;
+	border-color: #35393c !important;
+	border-radius: 90px !important;
+	padding: 0px;
+}
+
+.list-friends {
+	padding: 0px !important;
+}
+
+.content-friends-list-grey {
+	background-color: #f1f1f1 !important;
+	border: solid;
+	border-width: 1px;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-color: #35393c;
+}
+
+.content-friends-list-white {
+	background-color: white !important;
+	border: solid;
+	border-width: 1px;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-color: #35393c;
+}
+
+.image-small-friends {
+	border:solid;
+	border-width: 1px;
+	border-radius: 80px !important;
+	border-color: #73b3f9;
+	background-color: #73b3f9;
+	max-width: 50px !important;
+
+}
+
+.name-friend {
+	font-size: 0.8em;
+	font-style: inherit;
+	color: #35393c;
+}
+
+.faculty-friend {
+	font-size: 0.7em;
+	color: #35393c;
+}
+
+.line-height-1 {
+	line-height: 1 !important;
+	margin-left: 10px;
+}
+
+.plus-icon {
+	max-width: 35px !important;
+	margin-top: 10px; 
+}
+
+.input_search {
+	height: 20px !important;
+	border-radius: none !important;
+	border: none !important;
+	/*background-color: #35393c !important;*/
+	background-color: white;
+	box-shadow: none !important;
+
+}
+
+.ui-input-search {
+	margin: 0px !important;
+	border: none !important;
+	/*background-color: #35393c !important;*/
+	background-color: white;
+	box-shadow: none !important;
+}
+
+.icon-facebook {
+	max-width: 40px !important;
+}

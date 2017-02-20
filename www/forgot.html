@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+	<title>Nago App | login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<link rel="stylesheet" href="css/linkstyles.css">
+	<script src="js/linkURL.js"></script>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>	 
+</head> 
+ 
+<body>	
+	<div data-role="page" class="bg-color padding-none"> 
+	<!-- MENU SUPERIOR -->
+		<div data-role="header" data-position="fixed" class="header-menu bg-color" data-tap-toggle="false">
+			<div class="ui-grid-a menu-top">
+				<div class="ui-block-a align-left">
+					<a href="login.html" rel="external" class="icon-menu-a"><img class="icon-menu" src="img/Leftarrow.png" alt=""></a>
+					<img class="icon-menu-logo" src="img/logo-small.png" alt="">
+				</div>				
+			</div>
+		</div>
+		<!--  -->		
+		
+		<div data-role="content" class="full-height">	
+
+			<div class="ui-grid-a">
+				<div class="ui-block-a grid-width-10"></div>
+				<div class="ui-block-b grid-width-80 align-center  padding-top-30">
+					<img class="principal-logo" src="img/Shape4.png" alt="">
+				</div>
+				<div class="ui-block-c grid-width-10"></div>
+			</div>
+
+			<div class="ui-grid-b">
+				<div class="ui-block-a grid-width-10"></div>
+				<div class="ui-block-b grid-width-80 align-center">
+					<img class="principal-logo-text" src="img/Shape5.png" alt="">
+				</div>
+				<div class="ui-block-c grid-width-10"></div>
+			</div>		
+			<br>			
+
+			<div class="ui-grid-b position-down">
+				<div class="ui-block-a grid-width-10">				
+				</div>
+				<div class="ui-block-b grid-width-80">	
+					<div class="ui-grid-a" >								
+						<div class="ui-block-solo">
+							<div class="ui-field-contain padding-none border-color margin-bottom-none">
+								<input type="email" name="username" id="email" class="bg-color white-text border-none" placeholder="EMAIL">
+							</div>
+						</div>
+					</div>
+					<hr class="full">					
+				</div>		
+				<div class="ui-block-c grid-width-10">					
+				</div>
+			</div>				
+			<br>
+				
+			<div class="ui-grid-b">
+				<div class="ui-block-a grid-width-20"></div>					 
+					<div class="ui-block-b grid-width-60">
+						<button class="ui-btn bg-color fb-btn blue-text font-size-08">SEND ME AN EMAIL</button>
+					</div>					 							
+				<div class="ui-block-c grid-width-20"></div>
+			</div>
+			<br><br>
+
+			<div class="ui-grid-b">
+				<div class="ui-block-a grid-width-10">				
+				</div>
+				<div class="ui-block-b grid-width-80">	
+					<div class="ui-grid-a" >								
+						<div class="ui-block-solo">
+							<div class="ui-field-contain padding-none border-color margin-bottom-none">
+								<input type="email" name="username" id="password" class="bg-color white-text border-none" placeholder="SENT CODE">
+							</div>
+						</div>
+					</div>
+					<hr class="full">					
+				</div>		
+				<div class="ui-block-c grid-width-10">					
+				</div>
+			</div>	
+
+		</div>
+
+
+		<div data-role="footer" data-position="fixed">
+			<button id="send_email" class="ui-btn ui-corner-all btn-block btn-red-a">SEND EMAIL</button>
+			<!-- <a href="login.html"  data-transition="slidefade" rel="external" class="btn-red">SEND EMAIL</a> -->
+		</div>
+	</div>
+
+
+	<script>
+			 // Validacion del Nombre de Usuario Mientras Escribe
+		$('#send_email').click(function(){
+			var request = $.ajax({
+                    url: global_URL+"sendEmailCode/",
+                    method: "POST",
+					cache: false,
+					data:{
+						email: $('#email').val(),
+						app     : 'N4g04pp',
+						}
+			});
+			request.done(function (data) {
+				if (data == true) {
+					alert("email Enviado")
+				}
+				else{
+					alert("Fallo")
+				}
+			});			
+
+		});
+	</script>
+	 	
+</body>
+</html>

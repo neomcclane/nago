@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Nago App | Friends</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css"> 
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/friends.css">
+	<link rel="stylesheet" href="css/notifications.css">
+	<script src="js/config_var.js"></script>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+
+</head>
+
+<body>
+	<div data-role="page"> 	
+		
+		<div data-role="panel" id="menu" data-display="overlay" data-position="right">
+		 	<!-- llamada al Final con Load() -->
+		</div>
+		
+		<div id="header" data-role="header" data-position="fixed" data-tap-toggle="false" class="header-menu">	
+		<!-- llamada al Final con Load() -->	
+		</div>
+
+		<div data-role="content padding-none" style="margin-top: -2px;">			
+			<div class="content-rmenu2 bg-color white-text" >
+				<div class="ui-grid-b">
+					<div class="ui-block-a grid-width-10">
+						
+					</div>
+					<div class="ui-block-b grid-width-80 align-center">
+						<div class="ui-grid-solo">
+							<div class="ui-block-a">
+								<p class="title-page">FRIENDS</p>
+							</div>
+						</div>
+
+					</div>
+					<div class="ui-block-c grid-width-10">
+						
+					</div>
+				</div>		
+
+				<div class="ui-grid-a margin-top-15">
+					
+					<div class="ui-block-a grid-width-30">
+						
+						<div class="ui-grid-solo ">
+							<div class="ui-block-a align-center">
+								<img src="img/markus.png" alt="" class="img-responsive img-profile img-profile-mini">
+							</div>
+						</div>
+					</div>
+					<div class="ui-block-b grid-width-70 ">
+						<div class="ui-grid-a">
+							<div class="ui-block-a grid-width-80 align-left">
+								<input type="search" class="input_search" name="search" id="search" placeholder="search..." max_length="30">
+							</div>
+							<div class="ui-block-b grid-width-20 align-center">
+								<!-- <img class="img-responsive icon-facebook" src="img/iconos/facebook.png" alt="" > -->
+							</div>
+						</div>
+					</div>
+				</div>
+
+				
+				<!-- Lista de Usuarios  -->
+
+				<!-- BOTONES PARA CAMBIAR DE LISTA -->
+				<div class="ui-grid-solo content-fixed-button-friends">
+					<div class="ui-block-a">
+						<div class="ui-grid-b">
+							<div class="ui-block-a width-10 align-center">
+								<button id="button1" class="ui-btn ui-mini margin-auto btn-small-style-active width-per-80" >NAGO USERS</button>
+							</div>
+							<div class="ui-block-b width-80 align-center">
+								<button id="button2" class="ui-btn ui-mini margin-auto btn-small-style width-per-80" >MY FRIENDS</button>
+							</div>
+							<div class="ui-block-c width-10 align-center">
+								<button id="button3" class="ui-btn ui-mini margin-auto btn-small-style width-per-80" >WAITING</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<!-- PAGINA 1 | NAGO USERS -->
+				<div  id="page1" class="ui-grid-solo visible">
+					
+					<div class="ui-block-a">
+						<div class="content-list-notifications">
+						<!--  -->
+
+						<ul class="list-notifications update-nago-users" data-role="listview" data-inset="true" data-icon="false" >
+							<!-- <li class="content-notifications-list-grey" style="margin-top: 20px;">
+								<div class="ui-grid-a" style="margin-top:10px;">
+									<div class="ui-block-a grid-width-40 align-center">
+										<img class="image-small-notifications img-responsive" src="img/perfil0.png">
+
+									</div>
+									<div class="ui-block-b grid-width-60 align-left">
+										<p class="line-height-1"> <span class="name-notifications"><strong>Sebastiana Black</strong></span> <br> <span class="comment-notifications">Faculty of Engineering</span></p>
+									</div>
+								</div>  								
+						    </li>	 -->
+						</ul>
+						<!--  -->
+						</div>
+					</div>					
+				</div>
+
+				<!-- PAGINA 2 | DEALS-->
+
+				<div  id="page2" class="ui-grid-solo hide">					
+					<div class="ui-block-a">
+						<div class="content-list-notifications">
+
+							<ul class="list-notifications update-nago-friends" data-role="listview" data-inset="true" data-icon="false" >
+								<!-- <li class="content-notifications-list-grey" style="margin-top: 0px;">
+									<div class="ui-grid-a" style="margin-top:10px;">
+										<div class="ui-block-a grid-width-40 align-center">
+											<img class="image-small-notifications img-responsive" src="img/perfil0.png">
+										</div>
+										<div class="ui-block-b grid-width-60 align-left">
+											<p class="line-height-1"> <span class="name-notifications"><strong>Usuario Estatico</strong></span> <br> <span class="comment-notifications">Eliminar</span></p>
+										</div>
+									</div> 									
+							    </li> -->
+								<!-- <li class="content-notifications-list-white" >
+									<div class="ui-grid-a" style="margin-top:10px;">
+										<div class="ui-block-a grid-width-40 align-center">
+											<img class="image-small-notifications img-responsive" src="img/perfil1.png">
+										</div>
+										<div class="ui-block-b grid-width-60 align-left">
+											<p class="line-height-1"> <span class="name-notifications"><strong>Albert Stuard</strong></span> <br> <span class="comment-notifications">is new in nago</span></p>
+										</div>
+									</div>  									
+							    </li> -->								
+							</ul>					 
+						</div>
+					</div>					
+				</div>
+
+				<!-- PAGINA 3 | COMMENTS-->
+				
+				<div  id="page3" class="ui-grid-solo hide">					
+					<div class="ui-block-a">
+						<div class="content-list-notifications">
+							<ul class="list-notifications" data-role="listview" data-inset="true" data-icon="false" >		 
+								<!-- <li class="content-notifications-list-white" >
+									<div class="ui-grid-a" style="margin-top:10px;">
+										<div class="ui-block-a grid-width-40 align-center">
+											<img class="image-small-notifications img-responsive" src="img/perfil1.png">
+										</div>
+										<div class="ui-block-b grid-width-60 align-left">
+											<p class="line-height-1"> <span class="name-notifications"><strong>Albert Stuard</strong></span> <br> <span class="comment-notifications">hellow my Friend :p</span></p>
+										</div>
+									</div>  									
+							    </li> -->								
+							</ul>					 
+						</div>
+					</div>					
+				</div>
+
+
+			</div>			
+		</div>
+	</div>
+
+	<script>
+		
+
+		var listUsers = [];
+		// var actualUser,actualUserDescription,actualUserImage,actualUserId;
+
+		// Objeto que Define como se iran Mostrando los Usuarios en la lista
+		function user(id,name,description,image,friend, number){
+			this.name=name;
+			this.description=description;
+			this.image=image;
+			this.id=id;
+			this.friend=friend;  //Esto ME ayuda a tener el is_friend, solo lo uso aqui para agreg en la class de li
+			 
+			var friendStatus;
+			
+			if (friend == "false"){				 
+				friendStatus = "friendFalse";
+			}else{
+				friendStatus = "friendTrue";
+			}
+			color = "grey";
+			if(number % 2 != 0) {
+				color = "white";
+			}
+		 
+			listStructure = '<li onclick=viewProfile('+id+') id="'+id+'" class="content-notifications-list-'+color+' ui-li-static ui-body-inherit ui-first-child ui-last-child '+friendStatus+ '" style="margin-top:0px;"><div class="ui-grid-a" style="margin-top:10px;"><div class="ui-block-a grid-width-40 align-center"><img class="image-small-notifications img-responsive" src="'+image+	'"></div><div class="ui-block-b grid-width-60 align-left"><p class="line-height-1"><span class="name-notifications"><strong>' + name+ '</strong></span> <br> <span class="comment-notifications">' +description+ '</span></p></div></div></li>'
+
+
+			user.prototype.joinStruct = function(){				
+				return listStructure;
+			}
+			
+		}
+		var idUserView = null;
+		var dataUserView;
+		// Funcion para Ver el Perfil del Usuario al que posiblemente se le enviara la invitacion
+		function viewProfile(id){
+			console.log("este es el ID:"+id)
+			idUserView = id;
+			console.log("este es el idUserView"+idUserView)
+			var request = $.ajax({
+                url: serverURL+"viewProfileUser/",
+                method: "POST",		                            
+                data: { 
+	        	    id: localStorage['user_id'],
+	        		user_id: idUserView,
+            	    app: 'N4g04pp'
+            	  }       
+			});			
+			
+			request.done(function(data) {
+			dataUserView = data;			
+			localStorage['profile_id'] = dataUserView.user_id;
+			localStorage['profile_username'] = dataUserView.username;
+			localStorage['profile_fullname'] = dataUserView.fullname; 
+			localStorage['profile_email'] = dataUserView.email;
+			localStorage['profile_description'] = dataUserView.description;
+			localStorage['profile_ranking'] = dataUserView.ranking;
+			localStorage['profile_if_friend'] = dataUserView.is_friend;
+
+			document.location.href = "profile_user.html";
+			});	
+		}
+		// se encarga de construir la lista de usuarios 
+		function buildUserList(data,place){
+			
+	   	 // Aqui se Recorre dataUser y Los Guarda en un Arreglo llamado listUser
+			for (var i=0;i<data.users.length;i++){
+				usuario = data.users[i];
+				// Agregado usuario en el arreglo
+				listUsers.push(usuario);							
+				// los voy dibujando enseguida
+				actualUserFullname    = usuario.fullname;
+				actualUserDescription = usuario.description;
+				actualUserImage       = "img/perfil0.png";
+				actualUserId 		  = usuario.id_person;
+				actualUserFriend 	  = usuario.is_friend;
+
+				// Esto lo hago porq el id que me retorna en friend se llaman diferente que el de user
+				if ( place == '.update-nago-friends'){
+					actualUserId = usuario.user_invitation_id;
+				}
+
+				buildUser(actualUserId,actualUserFullname,actualUserDescription,actualUserImage,actualUserFriend,i)
+			}
+
+          	 // Esta funcion Construye la estructura de los usuarios que se Mostraran en la lista
+          	function buildUser(actualUserId,actualUserFullname,actualUserDescription,actualUserImage, actualUserFriend, i){
+          		// console.log("este es actualUserFriend Antes de crear el Obj : " + actualUserFriend)
+          		
+          		userOnList = new user(actualUserId,actualUserFullname,actualUserDescription,actualUserImage,actualUserFriend,i)
+				$(place).append(userOnList.joinStruct)
+
+          	}	                    	
+
+		}
+		// Cuando Carga la pagina Muestra a los Usuaris de NAGO y los Amigos
+		$('body').ready(function() {	
+			var request = $.ajax({
+                url: serverURL+"viewNagoUsers/",
+                method: "POST",
+                // dataType: "text",                    
+                data: {id: localStorage['user_id'], num_ini: 0, num_end: 11, app: 'N4g04pp'}       
+			 });
+	        
+	        request.done(function(data) {  
+	        	console.log("data de users : "+data)
+	        	if (!$.isEmptyObject(data)) {
+					place='.update-nago-users';
+				    buildUserList(data,place);
+
+	            } 
+	        });
+
+	         // Por Ahora Se cargaran ambos desues que cargue el body
+	        var request_friends = $.ajax({
+                url: serverURL+"viewMyFriends/",
+                method: "POST",
+                // dataType: "text",                    
+                data: {id: localStorage['user_id'], num_ini: 0, num_end: 5, app: 'N4g04pp'}       
+			 });
+	        
+	        request_friends.done(function(data) {
+	         
+				if (!$.isEmptyObject(data)) {
+					place='.update-nago-friends';
+				   buildUserList(data,place);
+
+	            } 
+	        });
+
+		});
+
+		// Funcion de filtrado de usuarios
+
+		$(document).ready(function() {
+			$('#search').bind("keyup",function (event) {
+		        var search = $(this);
+		        if ( search.val().length > 0 && (event.keyCode >=37 && event.keyCode <=40)) {
+		            return; // No se hace nada cuando se presionan las flechas de dirección (para bajar el autocompletado)
+		        }
+
+		        if (search.val().length == 0) {
+		        	$('.update-nago-users').html("");
+		        	var request = $.ajax({
+		                url: serverURL+"viewNagoUsers/",
+		                method: "POST",
+		                // dataType: "text",                    
+		                data: {id: localStorage['user_id'], num_ini: 0, num_end: 11, app: 'N4g04pp'}       
+					 });
+			        
+			        request.done(function(data) {  
+			        	console.log("data de users : "+data)
+			        	if (!$.isEmptyObject(data)) {
+							place='.update-nago-users';
+						    buildUserList(data,place);
+
+			            } 
+			        });
+
+		        } else if (search.val().length > 3) {
+		        	$('.update-nago-users').html("");
+		        	console.log(search.val());
+		        	$.ajax({
+		            	url: serverURL+"userNagoFilter/",
+		                method: "POST",
+		                data: {id: localStorage['user_id'], username:search.val(), app: 'N4g04pp'} 
+		            })
+	                .done(function (data) {
+	                	
+	                    if (!$.isEmptyObject(data)) {
+							place='.update-nago-users';
+						    buildUserList(data,place);
+		            	} 
+	                })
+	                .fail(function (jqXHR, textStatus) {
+	                	$("#msg").html("Error de conexión.");
+                    	$("#msg").show();
+	                });
+		        }
+		    });
+		});
+	</script>
+		 	 	
+				
+
+		</div>
+	</div>
+
+
+ <script src="js/listmenu.js"></script>
+ <script>
+	$("#menu").load('menu.html');
+	$("#header").load('header.html');
+</script>	
+</body>
+</html>

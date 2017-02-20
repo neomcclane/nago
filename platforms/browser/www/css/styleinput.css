@@ -1,0 +1,38 @@
+input#id_username, input#password, input#password,
+input#id_name, input#id_lastname, input#email, input#password2, input#pin {	
+  background-image:url('../img/user.png') !important;
+  background-repeat: no-repeat !important;
+  background-size: 30px !important;
+  padding-left: 70px !important;
+  height: 40px !important;
+  width: 100% !important;
+  margin-right: 20px !important;
+  font-size: 0.8em;
+  background-position:20px;
+}
+
+input#password{
+	background-image:url('../img/lock.png') !important;
+
+}
+
+/*input#name{
+	background-image:url('../img/user2.png') !important;
+}
+
+input#lastname{
+  background-image:url('../img/user2.png') !important;
+}*/
+
+input#email{
+	background-image:url('../img/mail.png') !important;
+}
+
+input#password2{
+	background-image:url('../img/unlock.png') !important;
+}
+
+input#pin{
+  background-image:url('../img/lock.png') !important;
+}
+

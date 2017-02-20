@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Nago App | History</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/fund_detail.css">
+	<link rel="stylesheet" href="css/linkstyles.css"> 
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+	
+</head>
+
+<body>
+	<div data-role="page"> 	
+
+		<div data-role="panel" id="menu" data-display="overlay" data-position="right">
+		 	<!-- llamada al Final con Load() -->
+		</div>
+		
+		<div id="header" data-role="header" data-position="fixed" data-tap-toggle="false" class="header-menu">	
+		<!-- llamada al Final con Load() -->	
+		</div>
+	 
+ 
+		
+		<div data-role="content padding-none" style="margin-top: -2px;">			
+			<div>
+				<div class="content-rmenu-upper">
+					<div class="ui-grid-b">
+						<div class="ui-block-a grid-width-10">
+							
+						</div>
+						<div class="ui-block-b grid-width-80 align-center">
+							<div class="ui-grid-solo">
+								<div class="ui-block-a">
+									<p class="title-page">HISTORY</p>
+								</div>
+							</div>
+
+						</div>
+						<div class="ui-block-c grid-width-10">
+							
+						</div>
+					</div>
+
+					<div class="ui-grid-b">
+						<div class="ui-block-a grid-width-10">
+							
+						</div>
+
+						<div class="ui-block-b grid-width-80 ">
+							<div class="ui-grid-solo">
+								<div class="ui-block-a">
+									<div class="line-white">
+										<div class="line-orange">
+											<p id="loan_amount_available" class="info-cash"><strong>120$</strong></p>
+											<script>
+								$("#loan_amount_available").text(localStorage['loan_amount_available']);
+								console.log(localStorage['loan_amount_available'])
+							</script>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="ui-grid-solo">
+								<div class="ui-block-a align-center">
+									<p  id="loan_date_created" class="text-small"></p>
+									<script>
+										$("#loan_date_created").text(localStorage['loan_date_created']);
+										console.log(localStorage['loan_date_created'])
+									</script>
+								</div>
+							</div>
+
+							<div class="ui-grid-a quads">
+								<div class="ui-block-a align-center">
+									<p class="text-info-small">PERIOD OF RETURN</p>
+								</div>
+								<div class="ui-block-b align-center border-left">
+									<p id="loan_date_return" class="text-info-small"></p>
+									<script>
+										$("#loan_date_return").text(localStorage['loan_date_return_day']);
+										
+									</script>					
+								</div>
+							</div>
+
+							<div class="ui-grid-a quads">
+								<div class="ui-block-a align-center">
+									<p class="text-info-small">DEADLINE</p>
+								</div>
+								<div class="ui-block-b align-center border-left">
+									<p id="loan_date_expiration" class="text-info-small"></p>
+									<script>
+										$("#loan_date_expiration").text(localStorage['loan_date_expiration']);
+										console.log(localStorage['loan_date_expiration'])
+									</script>	
+								</div>
+							</div>
+						</div>
+
+						<div class="ui-block-c grid-width-10">
+							
+						</div>
+					</div>
+					
+					<div class="ui-grid-b ">
+						<div class="ui-block-a grid-width-30 align-center">
+							<p class="margin-auto " style="text-height:1 !important;"> <span class="text-info-menu ">AMOUNT NEEDED</span> <br> <span id="loan_amount_request" class="cash-info-menu">200$</span></p>
+							<script>
+								$("#loan_amount_request").text(localStorage['loan_amount_request']+"$");
+								console.log(localStorage['loan_amount_request'])
+							</script>	
+						</div>
+						<div class="ui-block-b grid-width-40">
+							
+							<div class="ui-grid-solo ">
+								<div class="ui-block-a align-center">
+									<img src="img/perfil0.png" alt="" class="img-responsive img-profile">
+								</div>
+							</div>
+						</div>
+						<div class="ui-block-c grid-width-30 align-center">
+							<p class="margin-auto " style="text-height:1 !important;"> <span class="text-info-menu">INTEREST RETURN</span> <br> <span id="loan_interest" class="cash-info-menu">20$</span></p>
+							<script>
+								$("#loan_interest").text(localStorage['loan_interest']+"%");
+								console.log(localStorage['loan_interest'])
+							</script>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			
+			<div class="ui-grid-b" style="margin-top: -10px !important;">
+				<div class="ui-block-a grid-width-30 align-center">
+					<p class="margin-auto " style="text-height:1 !important;"> <span class="text-info-orange ">INVESTORS</span> <br> <span id="loan_invertors" class="cash-info-orange">3</span></p>
+					<script>
+						$("#loan_invertors").text(localStorage['loan_invertors']);
+						console.log(localStorage['loan_invertors'])
+					</script>
+				</div>
+				<div class="ui-block-b grid-width-40">
+					
+				</div>
+				<div class="ui-block-c grid-width-30 align-center">
+					<p class="margin-auto " style="text-height:1 !important;"> <span class="text-info-orange ">ANNUAL INTEREST</span> <br> <span class="cash-info-orange">10.0%</span></p>
+				</div>
+			</div>
+			
+			<div class="ui-grid-b">
+				<div class="ui-block-a grid-width-20">
+					
+				</div>
+				<div class="ui-block-b grid-width-60 align-center">
+					<p id="loan_fullname" class="text-info">Sebastiana Black</p>					
+					 <p id="loan_comment" class="font-size-07"></p>
+					<script>
+						$("#loan_fullname").text(localStorage['loan_fullname']);
+						console.log(localStorage['loan_fullname'])						
+						$("#loan_comment").text(localStorage['loan_comment']);
+						console.log(localStorage['loan_comment'])
+					</script>
+				</div>
+				<div class="ui-block-c grid-width-20">					
+				</div>
+			</div>	
+
+			
+			
+		</div>
+
+		<div class="footer" data-role="footer" data-position="fixed" data-tap-toggle="false">
+			<a href="main.html" rel="external" class="btn-red">BACK</a>
+		</div>
+	</div>	
+
+	<script>
+		function updateTextInput(val) {
+	       	document.getElementById('textInput').innerHTML=val.toString(); 
+	    }
+	    $("#menu").load('menu.html');
+		$("#header").load('header.html');
+
+	</script>		
+</body>
+</html>

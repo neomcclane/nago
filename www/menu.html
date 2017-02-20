@@ -1,0 +1,155 @@
+
+	<div class="content-menu-top">
+		<div class="ui-grid-solo">
+			<div class="ui-block-a align-center">
+				<img src="img/markus.png" class="img-responsive img-profile-mini-menu">
+			</div>
+			<div class="ui-block-a align-center bottom-top-5">
+				<p class="name-menu-profile">
+					<script>
+						$('.name-menu-profile').html(localStorage['user_fullname']);
+					</script>
+				</p>
+			</div>
+		</div>
+
+		<div class="ui-grid-solo margin-top-5">
+			<div class="ui-block-a align-center">
+				<div class="ui-grid-a margin-bottom-10">
+					<div class="ui-block-a align-left padding-left-40">
+						<p class="p-strong-menu">AVALAIBLE</p>
+					</div>
+					<div class="ui-block-b">
+						<p class="p-menu" id="menu_available">887$</p>
+					</div>
+				</div>
+				<div class="ui-grid-a margin-bottom-10">
+					<div class="ui-block-a align-left padding-left-40">
+						<p class="p-strong-menu">LOCKED</p>
+					</div>
+					<div class="ui-block-b">
+						<p class="p-menu" id="menu_locked">135$</p>
+					</div>
+				</div>
+				<div class="ui-grid-a margin-bottom-10">
+					<div class="ui-block-a align-left padding-left-40">
+						<p class="p-strong-menu">INVEST</p>
+					</div>
+					<div class="ui-block-b">
+						<p class="p-menu" id="menu_invest">392$</p>
+					</div>
+				</div>
+				<script>
+					$("#menu_available").html(localStorage["user_available"]+"$");
+					$("#menu_locked").html(localStorage["user_locked"]+"$");
+					$("#menu_invest").html(localStorage["user_invest"]+"$");
+				</script>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="ui-grid-b">
+		<div class="ui-block-a grid-width-10">
+			
+		</div>
+		<div class="ui-block-b grid-width-80">
+			<ul data-role="listview">
+			    <li data-icon="false" class="li-menu-style">
+			    	<a href="main.html" rel="external" class="a-menu">
+			    		<div class="ui-grid-a">
+				    		<div class="ui-block-a align-center grid-width-30">
+				    			<img class="img-menu-a" src="img/iconos/market.png">
+				    		</div>
+				    		<div class="ui-block-b grid-width-70 align-left">
+				    			<p class="p-menu-a">MARKET</p>
+				    		</div>
+				    	</div>
+			    	</a>
+			    </li>
+			    <hr>
+			    <li data-icon="false" class="li-menu-style">
+			    	<a href="profile.html" rel="external" class="a-menu">
+			    		<div class="ui-grid-a">
+				    		<div class="ui-block-a align-center grid-width-30">
+				    			<img class="img-menu-a" src="img/iconos/user.png">
+				    		</div>
+				    		<div class="ui-block-b grid-width-70 align-left">
+				    			<p class="p-menu-a">PROFILE</p>
+				    		</div>
+				    	</div>		
+			    	</a>
+			    </li>
+			    <hr>
+			    <li data-icon="false" class="li-menu-style">
+			    	<a href="friends.html" rel="external" class="a-menu">
+			    		<div class="ui-grid-a">
+				    		<div class="ui-block-a align-center grid-width-30">
+				    			<img class="img-menu-a" src="img/iconos/friends.png">
+				    		</div>
+				    		<div class="ui-block-b grid-width-70 align-left">
+				    			<p class="p-menu-a">FRIENDS</p>
+				    		</div>
+				    	</div>
+			    	</a>
+			    </li>
+			    <hr>
+			    <li data-icon="false" class="li-menu-style">
+			    	<a href="account.html" rel="external" class="a-menu">
+			    		<div class="ui-grid-a">
+				    		<div class="ui-block-a align-center grid-width-30">
+				    			<img class="img-menu-a" src="img/iconos/credit.png">
+				    		</div>
+				    		<div class="ui-block-b grid-width-70 align-left">
+				    			<p class="p-menu-a">ACCOUNT</p>
+				    		</div>
+				    	</div>
+			    	</a>
+			    </li>
+			    <hr>
+			   	<li data-icon="false" class="li-menu-style">
+			    	<a href="notifications.html" rel="external" class="a-menu">
+			    		<div class="ui-grid-a">
+				    		<div class="ui-block-a align-center grid-width-30">
+				    			<img class="img-menu-a" src="img/iconos/folder.png">
+				    		</div>
+				    		<div class="ui-block-b grid-width-70 align-left">
+				    			<p class="p-menu-a">NOTIFICATIONS</p>
+				    		</div>
+				    	</div>
+			    	</a>
+			    </li>
+			    <hr> 
+			    <li data-icon="false" class="li-menu-style">
+			    	<a href="#" class="a-menu">
+			    		<div class="ui-grid-a">
+				    		<div class="ui-block-a align-center grid-width-30">
+				    			<img class="img-menu-a" src="img/iconos/config.png">
+				    		</div>
+				    		<div class="ui-block-b grid-width-70 align-left">
+				    			<p class="p-menu-a">SETTINGS</p>
+				    		</div>
+				    	</div>
+			    	</a>
+			    </li>
+			    <hr>
+			    <li data-icon="false" class="li-menu-style">
+			    	<a href="login.html" rel="external" class="a-menu">
+			    		<div class="ui-grid-a">
+				    		<div class="ui-block-a align-center grid-width-30">
+				    			<img class="img-menu-a" src="img/iconos/logout.png">
+				    		</div>
+				    		<div class="ui-block-b grid-width-70 align-left">
+				    			<p class="p-menu-a">LOGOUT</p>
+				    		</div>
+				    	</div>
+			    	</a>
+			    </li>
+			    
+			</ul>
+		</div>
+		<div class="ui-block-c grid-width-10">
+			
+		</div>
+	</div>
+ 

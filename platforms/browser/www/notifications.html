@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Nago App | Friends</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.css" />
+	<link rel="stylesheet" href="css/notifications.css">
+ 	<script src="js/config_var.js"></script>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog2.min.js"></script>
+	
+</head>
+
+<body>
+	<div data-role="page"> 	
+		
+		<div data-role="panel" id="menu" data-display="overlay" data-position="right">
+		 	<!-- llamada al Final con Load() -->
+		</div>
+		
+		<div id="header" data-role="header" data-position="fixed" data-tap-toggle="false" class="header-menu">	
+		<!-- llamada al Final con Load() -->	
+		</div>		
+
+		<div data-role="content padding-none" style="margin-top: -2px;">			
+			<div class="content-rmenu3 bg-color white-text" >
+				<div class="ui-grid-b">
+						<div class="ui-block-a grid-width-10">
+							
+						</div>
+						<div class="ui-block-b grid-width-80 align-center">
+							<div class="ui-grid-solo">
+								<div class="ui-block-a">
+									<p class="title-page">NOTIFICATIONS</p>
+								</div>
+							</div>
+
+						</div>
+						<div class="ui-block-c grid-width-10">
+							
+						</div>
+				</div>		
+
+				<div class="ui-grid-solo">
+					<div class="ui-block-a align-center">
+						<div class="ui-grid-a">
+							<div class="ui-block-a align-right">
+								<p class="recent-info-menu">RECENT</p>
+							</div>
+							<div class="ui-block-b align-left">
+								<p class="num-info-menu">12</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- BOTONES PARA CAMBIAR DE LISTA -->
+				<div class="ui-grid-solo content-fixed-button">
+					<div class="ui-block-a">
+						<div class="ui-grid-b">
+							<div class="ui-block-a width-10 align-center">
+								<button id="button1" class="ui-btn ui-mini margin-auto btn-small-style-active width-per-80" >FRIENDS REQUEST</button>
+							</div>
+							<div class="ui-block-b width-80 align-center">
+								<button id="button2" class="ui-btn ui-mini margin-auto btn-small-style width-per-80" >DEALS</button>
+							</div>
+							<div class="ui-block-c width-10 align-center">
+								<button id="button3" class="ui-btn ui-mini margin-auto btn-small-style width-per-80" >COMMENTS</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- PAGINA 1 | MY MONEY -->
+				<div  id="page1" class="ui-grid-solo visible">
+					
+					<div class="ui-block-a">
+						<div class="content-list-notifications">
+						<!--  -->
+
+						<ul class="list-notifications" id="solicitude-update" data-role="listview" data-inset="true" data-icon="false" >
+							
+							
+							
+
+							<!-- <li class="content-notifications-list-white" >
+								<div class="ui-grid-a" style="margin-top:10px;">
+									<div class="ui-block-a grid-width-40 align-center">
+										<img class="image-small-notifications img-responsive" src="img/perfil3.png">
+
+									</div>
+									<div class="ui-block-b grid-width-60 align-left">
+										<p class="line-height-1"> <span class="name-notifications"><strong>Samantha Martins</strong></span> <br> <span class="comment-notifications">Is currently is waiting for invest</span></p>
+									</div>
+								</div -->
+								
+						    </li>
+
+						</ul>
+						<!--  -->
+						</div>
+					</div>					
+				</div>
+
+				<!-- PAGINA 2 | DEALS-->
+
+				<div  id="page2" class="ui-grid-solo hide">					
+					<div class="ui-block-a">
+						<div class="content-list-notifications">
+							<ul class="list-notifications" data-role="listview" data-inset="true" data-icon="false" >
+								<li class="content-notifications-list-grey" style="margin-top: 20px;">
+									<div class="ui-grid-a" style="margin-top:10px;">
+										<div class="ui-block-a grid-width-40 align-center">
+											<img class="image-small-notifications img-responsive" src="img/perfil0.png">
+										</div>
+										<div class="ui-block-b grid-width-60 align-left">
+											<p class="line-height-1"> <span class="name-notifications"><strong>Jennifer Reve</strong></span> <br> <span class="comment-notifications">Faculty of Engineering</span></p>
+										</div>
+									</div> 									
+							    </li>
+								<li class="content-notifications-list-white" >
+									<div class="ui-grid-a" style="margin-top:10px;">
+										<div class="ui-block-a grid-width-40 align-center">
+											<img class="image-small-notifications img-responsive" src="img/perfil1.png">
+										</div>
+										<div class="ui-block-b grid-width-60 align-left">
+											<p class="line-height-1"> <span class="name-notifications"><strong>Albert Stuard</strong></span> <br> <span class="comment-notifications">is new in nago</span></p>
+										</div>
+									</div>  									
+							    </li>								
+							</ul>					 
+						</div>
+					</div>					
+				</div>
+
+				<!-- PAGINA 3 | COMMENTS-->
+				
+				<div  id="page3" class="ui-grid-solo hide">					
+					<div class="ui-block-a">
+						<div class="content-list-notifications">
+							<ul class="list-notifications" data-role="listview" data-inset="true" data-icon="false" >		 
+								<li class="content-notifications-list-white" >
+									<div class="ui-grid-a" style="margin-top:10px;">
+										<div class="ui-block-a grid-width-40 align-center">
+											<img class="image-small-notifications img-responsive" src="img/perfil1.png">
+										</div>
+										<div class="ui-block-b grid-width-60 align-left">
+											<p class="line-height-1"> <span class="name-notifications"><strong>Albert Stuard</strong></span> <br> <span class="comment-notifications">hellow my Friend :p</span></p>
+										</div>
+									</div>  									
+							    </li>								
+							</ul>					 
+						</div>
+					</div>					
+				</div>
+			
+
+			</div>	
+		</div>	
+	</div>	
+
+
+<script type="text/javascript">
+	var listUsers = [];
+	var actualUser,actualUserDescription,actualUserImage,actualUserId;
+	
+	function user(id,name,description,image,friendStatus){
+		this.name=name;
+		this.description=description;
+		this.image=image;
+		this.id=id;
+		this.friendStatus= friendStatus;
+		
+		listStructure = '<li onclick=viewProfile('+id+') id="'+id+'" class="content-notifications-list-grey ui-li-static ui-body-inherit ui-first-child ui-last-child '+friendStatus+ '" style="margin-top:0px;"><div class="ui-grid-a" style="margin-top:10px;"><div class="ui-block-a grid-width-40 align-center"><img class="image-small-notifications img-responsive" src="'+image+	'"></div><div class="ui-block-b grid-width-60 align-left"><p class="line-height-1"><span class="name-notifications"><strong>' + name+ '</strong></span> <br> <span class="comment-notifications">' +description+ '</span></p></div></div></li>'
+
+
+			user.prototype.joinStruct = function(){
+	 			return listStructure;
+			}
+			
+	}
+
+	function viewProfile(id) {
+		
+		$('<div>').simpledialog2({
+	    mode: 'button',
+	    headerText: 'invitation',
+	    headerClose: true,
+	    buttonPrompt: 'Accept invitation to ?',
+	    buttons : {
+	      'Accept': {
+	        click: function () { 
+	          $('#buttonoutput').text('OK');
+	          acceptSolicitude(id);
+	        }
+	      },
+	      'To refuse': {
+	        click: function () { 
+	          $('#buttonoutput').text('To refuse');
+	          cancelSolicitude(id);
+	        },
+	        icon: "delete",
+	        theme: "c"
+	      }
+	    }
+	  });
+	}
+
+	function acceptSolicitude(user_invitation_id) {
+		var request = $.ajax({
+			url: serverURL+"responseInvitationFriendAccept/",
+            method: "POST",
+            cache: false,
+            data: {id: localStorage['user_id'], user_invitation_id: user_invitation_id, app: 'N4g04pp'} 
+		});
+		request.done(function(data) {  
+			//data = JSON.parse(data);			
+			data = JSON.stringify(data)			//Convierte Json en String                  
+         	
+         	if (data == "true") {
+			   $('#'+user_invitation_id).hide();
+			   alert("solicitud aceptada!");
+			} 
+			else {
+            	alert("Error de solicitud");
+            }
+        });
+        request.fail(function (jqXHR, textStatus) {
+            alert('Error de conexion');
+          
+        });
+	}
+
+	function cancelSolicitude(user_invitation_id) {
+		var request = $.ajax({
+			url: serverURL+"/responseInvitationFriendCancel/",
+            method: "POST",
+            data: {id: localStorage['user_id'], user_invitation_id: user_invitation_id, app: 'N4g04pp'} 
+		});
+		request.done(function(data) {  
+			data = JSON.stringify(data)	                  
+         	if (data == "true") {
+			   $('#'+user_invitation_id).hide();
+			   alert("solicitud rechazada!");
+			} 
+			else {
+            	alert("Error de solicitud");
+            }
+        });
+        request.fail(function (jqXHR, textStatus) {           
+            alert('Error de conexion');
+           
+        });
+	}
+
+	$('body').ready(function() {
+		var request = $.ajax({
+			url: serverURL+"/invitationViewFriends/",
+            method: "POST",
+            data: {id: localStorage['user_id'], num_ini: 0, num_end: 4, app: 'N4g04pp'} 
+		});
+		request.done(function(data) {                    
+         	if (!$.isEmptyObject(data)) {
+			   // Aqui se Recorre dataUser y Los Guarda en un Arreglo llamado listUser
+				for (var i=0;i<data.users.length;i++){
+					usuario = data.users[i];
+					// Agregado usuario en el arreglo
+					listUsers.push(usuario);							
+					// los voy dibujando enseguida
+					actualUserFullname = usuario.fullname;
+					actualUserDescription = usuario.description;
+					actualUserImage = "img/perfil0.png";
+					actualUserId = usuario.user_invitation_id;
+					friendStatus = usuario.is_friend;
+
+					buildUser(actualUserId,actualUserFullname,actualUserDescription,actualUserImage,friendStatus)
+				}
+              	 // Esta funcion Construye la estructura de los usuarios que se organizaran en la lista
+              	function buildUser(actualUserId,actualUser,actualUserDescription,actualUserImage,friendStatus){
+              		userOnList = new user(actualUserId,actualUser,actualUserDescription,actualUserImage)
+					$('#solicitude-update').append(userOnList.joinStruct)
+
+              	}
+			} else {
+            	alert("no retorno nada");
+                $('#msg').html('Username or password invalid.').show('fast');
+                $.mobile.loading("hide");
+            }
+        });
+        request.fail(function (jqXHR, textStatus) {
+            // if (jqXHR.status === 0) {
+            //     alert('Not connection. Verify Network.');
+            // } else if (jqXHR.status == 404) {
+            //     alert('Requested page not found. [404]');
+            // } else if (jqXHR.status == 500) {
+            //     alert('Internal Server Error [500].');
+            // } else if (exception === 'parsererror') {
+            //     alert('Requested JSON parse failed.');
+            // } else if (exception === 'timeout') {
+            //     alert('Time out error.');
+            // } else if (exception === 'abort') {
+            //     alert('Ajax request aborted.');
+            // } else {
+            //     alert('Uncaught Error.n' + jqXHR.responseText);
+            // }
+            alert('Error de conexion');
+            // $("#msg").html("Error de conexión.");
+            // $("#msg").show();
+        });
+	});
+
+</script>
+		
+<script src="js/listmenu.js"></script>
+<script>
+	$("#menu").load('menu.html');
+	$("#header").load('header.html');
+</script>	
+</body>
+</html>
