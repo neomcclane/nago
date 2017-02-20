@@ -111,8 +111,7 @@
 								<div class="ui-block-b align-center border-left">
 									<p id="loan_date_expiration" class="text-info-small"></p>
 									<script>
-										$("#loan_date_expiration").text(localStorage['loan_date_expiration']);
-										console.log(localStorage['loan_date_expiration'])
+										$("#loan_date_expiration").text(localStorage['loan_deadline']);
 									</script>	
 								</div>
 							</div>
@@ -207,11 +206,7 @@
 						<p id="textInput">0</p>
 						<input class="" type="range" name="slider-10" id="slider-10" min="0" max="100" value="0" onchange="updateTextInput(this.value);">
 						<script>
-							if (parseInt(localStorage["user_available"]) >= parseInt(parseInt(localStorage["loan_amount_request"]))) {
-								document.getElementById("slider-10").max = localStorage["loan_amount_request_bar"];
-							} else {
-								document.getElementById("slider-10").max = localStorage["user_available"];
-							}
+							document.getElementById("slider-10").max = localStorage["loan_amount_request_bar"];
 								
 						</script>
 						<hr>

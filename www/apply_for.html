@@ -29,6 +29,33 @@
 		}
 
 		function sumaFecha(d, fecha) {
+			 
+			 fecha = $('#calendario').val();
+			 console.log('fecha: '+fecha);
+			 var Fecha = new Date();
+			 var sFecha = fecha || (Fecha.getDate() + "/" + (Fecha.getMonth() +1) + "/" + Fecha.getFullYear());
+			 console.log('sFecha: '+sFecha);
+			 var sep = sFecha.indexOf('/') != -1 ? '/' : '-'; 
+			 var aFecha = sFecha.split(sep);
+			 var fecha = aFecha[0]+'/'+aFecha[1]+'/'+aFecha[2];
+			 fecha= new Date(fecha);
+			 
+			 fecha.setDate(fecha.getDate()+parseInt(d));
+			 var anno=fecha.getFullYear();
+			 var mes= fecha.getMonth()+1;
+			 var dia= fecha.getDate();
+			 mes = (mes < 10) ? ("0" + mes) : mes;
+			 dia = (dia < 10) ? ("0" + dia) : dia;
+			 //var fechaFinal = dia+sep+mes+sep+anno;
+			 var fechaFinal = anno+sep+mes+sep+dia
+			 console.log('fecha final: '+fechaFinal);
+			 return (fechaFinal);
+		 }
+
+		 function sumarFecha(d, fecha) {
+			 
+			 fecha = $('#calendario').val();
+			 console.log('fecha: '+fecha);
 			 var Fecha = new Date();
 			 var sFecha = fecha || (Fecha.getDate() + "/" + (Fecha.getMonth() +1) + "/" + Fecha.getFullYear());
 			 var sep = sFecha.indexOf('/') != -1 ? '/' : '-'; 
@@ -42,6 +69,7 @@
 			 mes = (mes < 10) ? ("0" + mes) : mes;
 			 dia = (dia < 10) ? ("0" + dia) : dia;
 			 var fechaFinal = dia+sep+mes+sep+anno;
+			 console.log('fecha final: '+fechaFinal);
 			 return (fechaFinal);
 		 }
 
@@ -307,7 +335,7 @@
 	
 	$('#fund_me').click(function(event) {	
 			
-		if ($('#amount_request').val().length > 0 && $('#interest').val().length > 0 && $('#textInput').val().length > 0 && $('#calendario').val().length > 0 && $('#commentary').val().length > 0) {
+		if ($('#amount_request').val().length > 0 && $('#interest').val().length > 0 && parseInt($('#textInput').val().split(' ')[0]) > 0 && $('#calendario').val().length > 0 && $('#commentary').val().length > 0) {
 	    	$('#lnkDialog').click();
 	    	$('#amount_modal').html($("#amount_request").val());	
 	    	$('#percentage_modal').html($("#interest").val());	
@@ -331,6 +359,7 @@
 		            	date_return		: $("#textInput").val(),
 		            	date_expiration : $("#calendario").val(),
 		            	commentary		: $("#commentary").val(),
+		            	deadline        : sumaFecha(parseInt($("#textInput").val().split(' ')[0]), $('#calendario').val() ), 
 		            	amount_available: localStorage['user_available'],
 		            	app     		: 'N4g04pp'            	 
 		            },
