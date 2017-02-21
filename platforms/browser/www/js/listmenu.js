@@ -34,15 +34,15 @@ $("#button1").click(function(){
 			page("#page2","#button2","#button1","#page1");
 	}
 	// derecha
-	else if ($('#page4').hasClass("visible")){
-		page("#page4","#button4","#button1","#page1");
+	else if ($('#pag3').hasClass("visible")){
+		page("#page3","#button3","#button1","#page1");
 	}
 })
  
 $("#button3").click(function(){
 	// izquierda
-	if ($('#page1').hasClass("visible")){
- 		page("#page1","#button1","#button3","#page3");
+	if ($('#page2').hasClass("visible")){
+ 		page("#page2","#button2","#button3","#page3");
 	}
 	// derecha
 	else if ($('#page2').hasClass("visible")){
@@ -50,18 +50,6 @@ $("#button3").click(function(){
 	}
 	 	
 })
-
-$("#button4").click(function(){
-	// izquierda
-	if ($('#page3').hasClass("visible")){
- 		page("#page3","#button3","#button4","#page4");
-	}
-	// derecha
-	else if ($('#page1').hasClass("visible")){
-		page("#page1","#button1","#button4","#page4");
-	}
-})
-
 
 // Event Swipe  ||  Compare if page is visible
 $(".content-list-menu").on("swipeleft",function()
@@ -74,11 +62,8 @@ $(".content-list-menu").on("swipeleft",function()
 			page("#page2","#button2","#button3","#page3");
 		}
 		else if ($('#page3').hasClass("visible")){
-			page("#page3","#button3","#button4","#page4");
+			page("#page3","#button3","#button1","#page1");
 		}
-		else if ($('#page4').hasClass("visible")){
-			page("#page4","#button4","#button1","#page1");
-		}  	
 	}
 );
 
@@ -92,11 +77,8 @@ $(".content-list-menu").on("swiperight",function()
 			page("#page3","#button3","#button2","#page2");		 	  		   		
 		}
 		else if ($('#page1').hasClass("visible")){
-			page("#page1","#button1","#button4","#page4");
+			page("#page1","#button1","#button3","#page3");
 		} 
-		else if ($('#page4').hasClass("visible")){
-			page("#page4","#button4","#button3","#page3");
-		}
 	}	
 );
 
