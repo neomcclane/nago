@@ -128,7 +128,7 @@
 			this.actualUserInterest0	  = actualUserInterest0; 
 					
 		 
-			listStructure = '<li onclick=viewLoanDetail('+actualUserId+') id="'+actualUserId+'" class="content-list"><div class="ui-grid-b" ><div class="ui-block-a align-center grid-width-30" ><div class="ui-grid-solo "><div class="ui-block-a"><img class="img-responsive image-small-profile" src='+this.actualUserImage+' alt=""></div></div><div class="ui-grid-solo"><div class="ui-block-a align-left"><p class="text-profile-name">'+actualUserFullname+'</p></div></div></div><div class="ui-block-b grid-width-50 "><div class="ui-grid-solo"><div class="ui-block-a align-center block-middle">	<div class="ui-grid-a"><div class="ui-block-a"><p class="cash-a">'+actualUserMountRequest+'</p></div><div class="ui-block-b"><p class="cash-b">'+actualUserMountAvailable+'</p></div></div></div></div><div class="ui-grid-solo bar-cash" ><div class="line-black"><div class="line-white"><p class="info-cash"><strong>"+33333+"</strong></p></div></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center align-center"><p class="speak-profile">'+actualUserComment+'</p></div></div></div><div class="ui-block-c  grid-width-20"><div class="ui-grid-solo"><div class="ui-block-a align-center"><p class="date-info">'+actualUserId+'<br> <strong class="date-num">'+actualUserId+'</strong></p></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center"><a href="#"><img src="img/circle.png" class="img-circle-btn" alt=""></a></div></div></div></div></li>'
+			listStructure = '<li onclick=viewRequestdUser('+actualUserId+') id="'+actualUserId+'" class="content-list"><div class="ui-grid-b" ><div class="ui-block-a align-center grid-width-30" ><div class="ui-grid-solo "><div class="ui-block-a"><img class="img-responsive image-small-profile" src='+this.actualUserImage+' alt=""></div></div><div class="ui-grid-solo"><div class="ui-block-a align-left"><p class="text-profile-name">'+actualUserFullname+'</p></div></div></div><div class="ui-block-b grid-width-50 "><div class="ui-grid-solo"><div class="ui-block-a align-center block-middle">	<div class="ui-grid-a"><div class="ui-block-a"><p class="cash-a">'+actualUserMountRequest+'</p></div><div class="ui-block-b"><p class="cash-b">'+actualUserMountAvailable+'</p></div></div></div></div><div class="ui-grid-solo bar-cash" ><div class="line-black"><div class="line-white"><p class="info-cash"><strong>"+33333+"</strong></p></div></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center align-center"><p class="speak-profile">'+actualUserComment+'</p></div></div></div><div class="ui-block-c  grid-width-20"><div class="ui-grid-solo"><div class="ui-block-a align-center"><p class="date-info">'+actualUserId+'<br> <strong class="date-num">'+actualUserId+'</strong></p></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center"><a href="#"><img src="img/circle.png" class="img-circle-btn" alt=""></a></div></div></div></div></li>'
 
 			user.prototype.joinStruct = function(){
 				return listStructure;
@@ -216,34 +216,33 @@
 
                 	if (!$.isEmptyObject(data)) {
 						place = '.update-invested';
-					    buildUserListMain(data,place);
+					    buildInterest(data,place);
 
 	            	} 
                   
                 });
         });
 
-	 	function viewLoanDetail(id){
+	 	function viewRequestdUser(id){
 			idUserView = id;
 			var request = $.ajax({
-				url: serverURL+"viewLoanFriend/",
+				url: serverURL+"viewRequestdUser/",
 				method: "POST",		                            
 				data: { 
 				    	id: localStorage['user_id'],
-						user_id: idUserView,
+						id_user: idUserView,
 	   			    	app: 'N4g04pp'
 	   			    }       
 				});			
 				
 
 				request.done(function(data) {
-					dataUserloan = data;			
-					localStorage['loan_id'] = dataUserloan.user_id;
-					localStorage['loan_id_she'] = dataUserloan.loan_id;
+					dataUserloan = data;	
+					localStorage['loan_id'] = dataUserloan.id;
+					localStorage['loan_id_she'] = dataUserloan.id;
 					localStorage['loan_username'] = dataUserloan.loan_id;
 					localStorage['loan_fullname'] = dataUserloan.fullname; 
 					localStorage['loan_comment'] = dataUserloan.comment;
-					localStorage['loan_description'] = dataUserloan.description;
 					localStorage['loan_date_return'] = dataUserloan.date_return;
 					localStorage['loan_date_expiration'] = dataUserloan.date_expiration;
 					localStorage['loan_interest'] = dataUserloan.interest;
@@ -258,6 +257,40 @@
 				});	
 		}
 
+		
+		function viewInvestedUser(id){
+			idUserView = id;
+			var request = $.ajax({
+				url: serverURL+"viewInvestedUser/",
+				method: "POST",		                            
+				data: { 
+				    	id: localStorage['user_id'],
+						id_user: idUserView,
+	   			    	app: 'N4g04pp'
+	   			    }       
+				});			
+				
+
+				request.done(function(data) {
+					dataUserloan = data;	
+					localStorage['loan_id'] = dataUserloan.id;
+					localStorage['loan_id_she'] = dataUserloan.id;
+					localStorage['loan_username'] = dataUserloan.loan_id;
+					localStorage['loan_fullname'] = dataUserloan.fullname; 
+					localStorage['loan_comment'] = dataUserloan.comment;
+					localStorage['loan_date_return'] = dataUserloan.date_return;
+					localStorage['loan_date_expiration'] = dataUserloan.date_expiration;
+					localStorage['loan_interest'] = dataUserloan.interest;
+					localStorage['loan_invertors'] = dataUserloan.invertors;
+					localStorage['loan_date_create'] = dataUserloan.date_create;
+					localStorage['loan_amount_request'] = dataUserloan.amount_request;
+					localStorage['loan_amount_request_bar'] = dataUserloan.amount_request_bar;
+					localStorage['loan_amount_available'] = dataUserloan.amount_available;
+					localStorage['loan_deadline'] = dataUserloan.deadline;
+
+					document.location.href = "history.html";
+				});	
+		}
 		// *********************************************************************
 		// *********************************************************************
 		// *********************************************************************
@@ -310,7 +343,7 @@
 			this.actualUserInterest0	  = actualUserInterest0; 
 					
 		 
-			listStructure = '<li onclick=viewLoanDetail('+actualUserId+') id="'+actualUserId+'" class="content-list"><div class="ui-grid-b" ><div class="ui-block-a align-center grid-width-30" ><div class="ui-grid-solo "><div class="ui-block-a"><img class="img-responsive image-small-profile" src='+this.actualUserImage+' alt=""></div></div><div class="ui-grid-solo"><div class="ui-block-a align-left"><p class="text-profile-name">'+actualUserFullname+'</p></div></div></div><div class="ui-block-b grid-width-50 "><div class="ui-grid-solo"><div class="ui-block-a align-center block-middle">	<div class="ui-grid-a"><div class="ui-block-a"><p class="cash-a">'+actualUserMountRequest+'</p></div><div class="ui-block-b"><p class="cash-b">'+actualUserMountAvailable+'</p></div></div></div></div><div class="ui-grid-solo bar-cash" ><div class="line-black"><div class="line-white"><p class="info-cash"><strong>"+33333+"</strong></p></div></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center align-center"><p class="speak-profile">'+actualUserComment+'</p></div></div></div><div class="ui-block-c  grid-width-20"><div class="ui-grid-solo"><div class="ui-block-a align-center"><p class="date-info">'+actualUserId+'<br> <strong class="date-num">'+actualUserId+'</strong></p></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center"><a href="#"><img src="img/circle.png" class="img-circle-btn" alt=""></a></div></div></div></div></li>'
+			listStructure = '<li onclick=viewInvestedUser('+actualUserId+') id="'+actualUserId+'" class="content-list"><div class="ui-grid-b" ><div class="ui-block-a align-center grid-width-30" ><div class="ui-grid-solo "><div class="ui-block-a"><img class="img-responsive image-small-profile" src='+this.actualUserImage+' alt=""></div></div><div class="ui-grid-solo"><div class="ui-block-a align-left"><p class="text-profile-name">'+actualUserFullname+'</p></div></div></div><div class="ui-block-b grid-width-50 "><div class="ui-grid-solo"><div class="ui-block-a align-center block-middle">	<div class="ui-grid-a"><div class="ui-block-a"><p class="cash-a">'+actualUserMountRequest+'</p></div><div class="ui-block-b"><p class="cash-b">'+actualUserMountAvailable+'</p></div></div></div></div><div class="ui-grid-solo bar-cash" ><div class="line-black"><div class="line-white"><p class="info-cash"><strong>"+33333+"</strong></p></div></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center align-center"><p class="speak-profile">'+actualUserComment+'</p></div></div></div><div class="ui-block-c  grid-width-20"><div class="ui-grid-solo"><div class="ui-block-a align-center"><p class="date-info">'+actualUserId+'<br> <strong class="date-num">'+actualUserId+'</strong></p></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center"><a href="#"><img src="img/circle.png" class="img-circle-btn" alt=""></a></div></div></div></div></li>'
 
 			userInterest.prototype.joinStruct = function(){
 				//console.log(listStructure)				

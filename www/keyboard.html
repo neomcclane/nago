@@ -49,20 +49,20 @@
 				</div>
 				<div class="ui-block-b grid-width-80 white-text align-center">	
 
-						<div class="ui-grid-c ">					
-							<div class="ui-block-a grid-width-26 border-color hr-line margin-side">
-								<input class="num1 bg-color white-text align-center" type="text" disabled>
+						<div class="ui-grid-c content-key">					
+							<div class="num1-content ui-block-a grid-width-26 border-color hr-line margin-side" style="color:white !important;">
+								
 							</div>
-							<div class="ui-block-b grid-width-26 border-color hr-line margin-side" >
-								<input class="num2 bg-color white-text align-center" type="text" disabled>	
+							<div class="num2-content ui-block-b grid-width-26 border-color hr-line margin-side"  style="color:white !important;">
+									
 							</div>
-							<div class="ui-block-c grid-width-26 border-color hr-line margin-side">
-								<input class="num3 bg-color white-text align-center" type="text" disabled>	
+							<div class="num3-content ui-block-c grid-width-26 border-color hr-line margin-side" style="color:white !important;">
+									
 							</div>
-							<div class="ui-block-d grid-width-26 border-color hr-line margin-side">
-								<input class="num4 bg-color white-text align-center" type="text" disabled>				
+							<div class="num4-content ui-block-d grid-width-26 border-color hr-line margin-side" style="color:white !important;">
+												
 							</div>
-
+							
 						</div>
 
 				</div>
@@ -211,7 +211,7 @@
 	 	$('#msg').hide();
 	 	boton = $(this).text();
 
-	 	if (boton == "<"){
+	 	if (boton == "<") {
 	 		if (keycode.length > 0 ){
 		 		keycode.pop(boton);
 		 		console.log(keycode);
@@ -219,53 +219,87 @@
 		 			console.log(counter);
 		 	}
 
-	 	}else{
-		 	if (keycode.length >= 0 && keycode.length < 4){
-		 		keycode.push(Number(boton));
-		 		console.log(keycode);
-		 		counter++;
-		 		console.log(counter);
-		 	}			 	
-	 	}
+	 	} else if (keycode.length >= 0 && keycode.length < 4){
+		 	keycode.push(Number(boton));
+		 	console.log(keycode);
+		 	counter++;
+		 	console.log(counter);
+		}			 	
 	 	
 
-		if (counter == 1){
-			console.log("agregando");
-			$(".num1").val("*");
-		}else{
-			$(".num1").val(" ");
-		}
-		if (counter == 2){
-			console.log("agregando");
-			$(".num1").val("*");
-			$(".num2").val("*");
-		}else{
-			$(".num2").val(" ");
-		}
-		if (counter == 3){
-			console.log("agregando");
-			$(".num1").val("*");
-			$(".num2").val("*");
-			$(".num3").val("*");
-		}else{
-			$(".num3").val(" ");
-		}
-		if (counter == 4){
-			console.log("agregando");
-			$(".num1").val("*");
-			$(".num2").val("*");
-			$(".num3").val("*");				
-			$(".num4").val("*");
-		}else{
-			$(".num4").val(" ");
+	 	if ($('#img-1').length == 0 && counter == 1){
+			//$(".num1").val("*");
+			var DOM_img1 = document.createElement("img");
+			DOM_img1.src = "img/asterisco1.png";
+			DOM_img1.id = "img-1";
+			DOM_img1.className = "img-key";
+
+
+			$('.num1-content').append(DOM_img1);
+		} else if($('#img-1').length > 0 && counter == 0){
+			$(".num1-content").html("");
 		}
 
-		if (keycode.length == 4){
+		if ( $('#img-2').length == 0 && counter == 2){
+			var DOM_img2 = document.createElement("img");
+			DOM_img2.src = "img/asterisco1.png";
+			DOM_img2.id = "img-2";
+			DOM_img2.className = "img-key";
+
+			$('.num2-content').append(DOM_img2);
+		}
+		else if($('#img-2').length > 0 && counter == 1){
+			$(".num2-content").html("");
+		}
+
+		if ( $('#img-3').length == 0 && counter == 3){
+			var DOM_img3 = document.createElement("img");
+			DOM_img3.src = "img/asterisco1.png";
+			DOM_img3.id = "img-3";
+			DOM_img3.className = "img-key";
+
+			
+			$('.num3-content').append(DOM_img3);
+			
+		}else if($('#img-3').length > 0 && counter == 2) {
+			$(".num3-content").html("");
+		} 
+
+		if ( $('#img-4').length == 0 && counter == 4){
+			var DOM_img4 = document.createElement("img");
+			DOM_img4.src = "img/asterisco1.png";
+			DOM_img4.id = "img-4";
+			DOM_img4.className = "img-key";
+
+			
+			$('.num4-content').append(DOM_img4);
+			
+		} else if($('#img-4').length > 0 && counter == 3) {
+			$(".num4-content").html("");
+		}
+
+		if (keycode.length >= 4){
 	 		console.log("enviando Mensaje");
 	 	} 
 	 
 	 })
 
 	</script>
+
+	<style>
+		.img-key {
+			position:absolute;
+			margin-top: -30px;
+			margin-left: -7px;
+		}
+	
+		.num1-content, .num2-content, .num3-content, .num4-content {
+		}
+		
+		.content-key {
+			margin-top: 50px;
+		}
+
+	</style>
 </body>
 </html>
