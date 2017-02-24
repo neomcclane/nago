@@ -12,11 +12,12 @@
 
 .line-orange {
 	background-color: #dc5e4a !important;
-	width: 60%;
+	width: 0%;
 	border-radius: 50px;
 	margin-top: 2px !important;
 	margin-bottom: 2px !important;
 	text-align: center;
+	height: 10px !important;
 	/*height: 26px;*/
 }
 

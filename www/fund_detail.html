@@ -70,12 +70,16 @@
 							<div class="ui-grid-solo">
 								<div class="ui-block-a">
 									<div class="line-white">
+										
 										<div class="line-orange">
-											<p id="loan_amount_available" class="info-cash"><strong>120$</strong></p>
+											<p id="loan_amount_available" class="info-cash"><strong></strong></p>
 											<script>
-								$("#loan_amount_available").text(localStorage['loan_amount_available']);
-								console.log(localStorage['loan_amount_available'])
-							</script>
+
+												var ancho = (98 * parseInt(localStorage['loan_amount_available'])) / parseInt(localStorage['loan_amount_request']);
+												$('.line-orange').css('width', ancho+'%');
+										
+												//$("#loan_amount_available").text(localStorage['loan_amount_available']);
+											</script>
 										</div>
 									</div>
 								</div>

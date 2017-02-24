@@ -56,7 +56,6 @@
 						</div>
 					</div>
 					<div class="ui-block-b grid-width-60 align-right margin-top-5">
-						<!--<p class="text-menu-right">FRIENDS <strong >25</strong></p>-->
 						
 					</div>
 				</div>
@@ -126,9 +125,10 @@
 			this.actualUserMountRequest   = actualUserMountRequest; 
 			this.actualUserMountAvailable = actualUserMountAvailable; 
 			this.actualUserInterest0	  = actualUserInterest0; 
-					
-		 
-			listStructure = '<li onclick=viewRequestdUser('+actualUserId+') id="'+actualUserId+'" class="content-list"><div class="ui-grid-b" ><div class="ui-block-a align-center grid-width-30" ><div class="ui-grid-solo "><div class="ui-block-a"><img class="img-responsive image-small-profile" src='+this.actualUserImage+' alt=""></div></div><div class="ui-grid-solo"><div class="ui-block-a align-left"><p class="text-profile-name">'+actualUserFullname+'</p></div></div></div><div class="ui-block-b grid-width-50 "><div class="ui-grid-solo"><div class="ui-block-a align-center block-middle">	<div class="ui-grid-a"><div class="ui-block-a"><p class="cash-a">'+actualUserMountRequest+'</p></div><div class="ui-block-b"><p class="cash-b">'+actualUserMountAvailable+'</p></div></div></div></div><div class="ui-grid-solo bar-cash" ><div class="line-black"><div class="line-white"><p class="info-cash"><strong>"+33333+"</strong></p></div></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center align-center"><p class="speak-profile">'+actualUserComment+'</p></div></div></div><div class="ui-block-c  grid-width-20"><div class="ui-grid-solo"><div class="ui-block-a align-center"><p class="date-info">'+actualUserId+'<br> <strong class="date-num">'+actualUserId+'</strong></p></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center"><a href="#"><img src="img/circle.png" class="img-circle-btn" alt=""></a></div></div></div></div></li>'
+			
+			var ancho = (98 * parseInt(actualUserMountAvailable)) / parseInt(actualUserMountRequest);
+
+			listStructure = '<li onclick=viewRequestdUser('+actualUserId+') id="'+actualUserId+'" class="content-list"><div class="ui-grid-b" ><div class="ui-block-a align-center grid-width-30" ><div class="ui-grid-solo "><div class="ui-block-a"><img class="img-responsive image-small-profile" src='+this.actualUserImage+' alt=""></div></div><div class="ui-grid-solo"><div class="ui-block-a align-left"><p class="text-profile-name">'+actualUserFullname+'</p></div></div></div><div class="ui-block-b grid-width-50 "><div class="ui-grid-solo"><div class="ui-block-a align-center block-middle">	<div class="ui-grid-a"><div class="ui-block-a"><p class="cash-a">'+actualUserMountRequest+'</p></div><div class="ui-block-b"><p class="cash-b">'+actualUserMountAvailable+'</p></div></div></div></div><div class="ui-grid-solo bar-cash" ><div class="line-black"><div class="line-white" style="width: '+ancho+'% !important;"><p class="info-cash"><strong>""</strong></p></div></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center align-center"><p class="speak-profile">'+actualUserComment+'</p></div></div></div><div class="ui-block-c  grid-width-20"><div class="ui-grid-solo"><div class="ui-block-a align-center"><p class="date-info">'+actualUserId+'<br> <strong class="date-num">'+actualUserId+'</strong></p></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center"><a href="#"><img src="img/circle.png" class="img-circle-btn" alt=""></a></div></div></div></div></li>'
 
 			user.prototype.joinStruct = function(){
 				return listStructure;
@@ -237,21 +237,22 @@
 				
 
 				request.done(function(data) {
-					dataUserloan = data;	
-					localStorage['loan_id'] = dataUserloan.id;
-					localStorage['loan_id_she'] = dataUserloan.id;
-					localStorage['loan_username'] = dataUserloan.loan_id;
-					localStorage['loan_fullname'] = dataUserloan.fullname; 
-					localStorage['loan_comment'] = dataUserloan.comment;
-					localStorage['loan_date_return'] = dataUserloan.date_return;
-					localStorage['loan_date_expiration'] = dataUserloan.date_expiration;
-					localStorage['loan_interest'] = dataUserloan.interest;
-					localStorage['loan_invertors'] = dataUserloan.invertors;
-					localStorage['loan_date_create'] = dataUserloan.date_create;
-					localStorage['loan_amount_request'] = dataUserloan.amount_request;
-					localStorage['loan_amount_request_bar'] = dataUserloan.amount_request_bar;
-					localStorage['loan_amount_available'] = dataUserloan.amount_available;
-					localStorage['loan_deadline'] = dataUserloan.deadline;
+					localStorage['loan_id'] = data.id;
+					localStorage['loan_id_she'] = data.id;
+					localStorage['loan_username'] = data.loan_id;
+					localStorage['loan_fullname'] = data.fullname; 
+					localStorage['loan_comment'] = data.comment;
+					localStorage['loan_date_return'] = data.date_return;
+					localStorage['loan_date_expiration'] = data.date_expiration;
+					localStorage['loan_interest'] = data.interest;
+					localStorage['loan_invertors'] = data.invertors;
+					localStorage['loan_date_create'] = data.date_create;
+					localStorage['loan_amount_request'] = data.amount_request;
+					localStorage['loan_amount_request_bar'] = data.amount_request_bar;
+					localStorage['loan_amount_available'] = data.amount_available;
+					localStorage['loan_deadline'] = data.deadline;
+					localStorage['loan_date_return_day'] = data.return_day;
+
 
 					document.location.href = "history.html";
 				});	
@@ -272,21 +273,24 @@
 				
 
 				request.done(function(data) {
-					dataUserloan = data;	
-					localStorage['loan_id'] = dataUserloan.id;
-					localStorage['loan_id_she'] = dataUserloan.id;
-					localStorage['loan_username'] = dataUserloan.loan_id;
-					localStorage['loan_fullname'] = dataUserloan.fullname; 
-					localStorage['loan_comment'] = dataUserloan.comment;
-					localStorage['loan_date_return'] = dataUserloan.date_return;
-					localStorage['loan_date_expiration'] = dataUserloan.date_expiration;
-					localStorage['loan_interest'] = dataUserloan.interest;
-					localStorage['loan_invertors'] = dataUserloan.invertors;
-					localStorage['loan_date_create'] = dataUserloan.date_create;
-					localStorage['loan_amount_request'] = dataUserloan.amount_request;
-					localStorage['loan_amount_request_bar'] = dataUserloan.amount_request_bar;
-					localStorage['loan_amount_available'] = dataUserloan.amount_available;
-					localStorage['loan_deadline'] = dataUserloan.deadline;
+					localStorage['loan_id'] = data.id;
+					localStorage['loan_id_she'] = data.id;
+					localStorage['loan_username'] = data.loan_id;
+					localStorage['loan_fullname'] = data.fullname; 
+					localStorage['loan_comment'] = data.comment;
+					localStorage['loan_date_return'] = data.date_return;
+					localStorage['loan_date_expiration'] = data.date_expiration;
+					localStorage['loan_interest'] = data.interest;
+					localStorage['loan_invertors'] = data.invertors;
+					localStorage['loan_date_create'] = data.date_create;
+					localStorage['loan_amount_request'] = data.amount_request;
+					localStorage['loan_amount_request_bar'] = data.amount_request_bar;
+					localStorage['loan_amount_available'] = data.amount_available;
+					localStorage['loan_deadline'] = data.deadline;
+					localStorage['loan_date_return_day'] = data.return_day;
+
+					console.log('loan_deadline: '+data.deadline);
+					console.log('loan_date_return_day: '+data.return_day);
 
 					document.location.href = "history.html";
 				});	
@@ -341,9 +345,11 @@
 			this.actualUserMountRequest   = actualUserMountRequest; 
 			this.actualUserMountAvailable = actualUserMountAvailable; 
 			this.actualUserInterest0	  = actualUserInterest0; 
-					
+			
+			var ancho = (98 * parseInt(actualUserMountAvailable)) / parseInt(actualUserMountRequest);
+
 		 
-			listStructure = '<li onclick=viewInvestedUser('+actualUserId+') id="'+actualUserId+'" class="content-list"><div class="ui-grid-b" ><div class="ui-block-a align-center grid-width-30" ><div class="ui-grid-solo "><div class="ui-block-a"><img class="img-responsive image-small-profile" src='+this.actualUserImage+' alt=""></div></div><div class="ui-grid-solo"><div class="ui-block-a align-left"><p class="text-profile-name">'+actualUserFullname+'</p></div></div></div><div class="ui-block-b grid-width-50 "><div class="ui-grid-solo"><div class="ui-block-a align-center block-middle">	<div class="ui-grid-a"><div class="ui-block-a"><p class="cash-a">'+actualUserMountRequest+'</p></div><div class="ui-block-b"><p class="cash-b">'+actualUserMountAvailable+'</p></div></div></div></div><div class="ui-grid-solo bar-cash" ><div class="line-black"><div class="line-white"><p class="info-cash"><strong>"+33333+"</strong></p></div></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center align-center"><p class="speak-profile">'+actualUserComment+'</p></div></div></div><div class="ui-block-c  grid-width-20"><div class="ui-grid-solo"><div class="ui-block-a align-center"><p class="date-info">'+actualUserId+'<br> <strong class="date-num">'+actualUserId+'</strong></p></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center"><a href="#"><img src="img/circle.png" class="img-circle-btn" alt=""></a></div></div></div></div></li>'
+			listStructure = '<li onclick=viewInvestedUser('+actualUserId+') id="'+actualUserId+'" class="content-list"><div class="ui-grid-b" ><div class="ui-block-a align-center grid-width-30" ><div class="ui-grid-solo "><div class="ui-block-a"><img class="img-responsive image-small-profile" src='+this.actualUserImage+' alt=""></div></div><div class="ui-grid-solo"><div class="ui-block-a align-left"><p class="text-profile-name">'+actualUserFullname+'</p></div></div></div><div class="ui-block-b grid-width-50 "><div class="ui-grid-solo"><div class="ui-block-a align-center block-middle">	<div class="ui-grid-a"><div class="ui-block-a"><p class="cash-a">'+actualUserMountRequest+'</p></div><div class="ui-block-b"><p class="cash-b">'+actualUserMountAvailable+'</p></div></div></div></div><div class="ui-grid-solo bar-cash" ><div class="line-black"><div class="line-white" style="width: '+ancho+'% !important;"><p class="info-cash"><strong>""</strong></p></div></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center align-center"><p class="speak-profile">'+actualUserComment+'</p></div></div></div><div class="ui-block-c  grid-width-20"><div class="ui-grid-solo"><div class="ui-block-a align-center"><p class="date-info">'+actualUserId+'<br> <strong class="date-num">'+actualUserId+'</strong></p></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center"><a href="#"><img src="img/circle.png" class="img-circle-btn" alt=""></a></div></div></div></div></li>'
 
 			userInterest.prototype.joinStruct = function(){
 				//console.log(listStructure)				

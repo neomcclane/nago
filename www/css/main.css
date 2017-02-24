@@ -99,13 +99,14 @@
 .line-white {
 	background-color: white !important;
 	height: 10px;
-	width: 60%;
+	width: 0%;
 	border-radius: 50px;
 	border: none !important;
 	margin-right: 0px !important;
 	margin-left: 0px !important;
 	overflow: hidden;
 	text-align: center !important;
+	height: 10px !important;
 }
 
 .block-middle {

@@ -110,28 +110,36 @@
 							<div class="ui-block-b align-center">
 							
 								<!-- Circulo de porcentaje -->
-								<div  class="c100 p65 big line-block">
-								    <span class="white-text"><span>10</span>%</span>
+								<div  class="c100 big line-block" id="locked-id">
+								    <span class="white-text" id="locked-text"></span>
 								    <div class="slice">
 								        <div class="bar"></div>
 								        <div class="fill"></div>
 								    </div>
 								</div>					
-
+								<script>
+									$('#locked-id').addClass('p'+localStorage['user_locked']);
+									$('#locked-text').html(localStorage['user_locked']+'%');
+								</script>
 								<p class="margin-none font-size-08">LOCKED</p>
 								<p class="margin-top-none font-size-08" id="head_locked"></p>
 							</div>
 							<div class="ui-block-c align-center">
 								
 								<!-- Circulo de porcentaje -->
-								<div  class="c100 p75 big line-block">
-								    <span class="white-text"><span>75</span>%</span>
+								<div  class="c100 big line-block" id="invested-id">
+								    <span class="white-text" id="invested-text"><span>75</span>%</span>
 								    <div class="slice">
 								        <div class="bar"></div>
 								        <div class="fill"></div>
 								    </div>
 								</div>
+								<script>
+								var ancho = (100 * )
 
+									$('#invested-id').addClass('p'+localStorage['user_invest']);
+									$('#invested-text').html(localStorage['user_invest']+'%');
+								</script>
 								<p class="margin-none font-size-08">INVEST</p>
 								<p class="margin-top-none font-size-08" id="head_invest"></p>
 							</div>
