@@ -42,7 +42,7 @@
 							
 						</div>
 						<div class="ui-block-b">
-							<a href="apply_for.html" rel="external" class="btn-apply btn-blue-radius">APPLY FOR</a>
+							<a href="apply_for.html" rel="external" class="btn-apply btn-blue-radius">APPLY</a>
 						</div>
 						<div class="ui-block-c">
 							
@@ -73,7 +73,7 @@
 						<div class="ui-block-a grid-width-30 align-center">
 							<p class="margin-auto " style="text-height:1 !important;"> <span class="text-info-menu ">AVAILABLE</span> <br> <span class="cash-info-menu" id="id_available"></span></p>
 							<script>
-								$("#id_available").html(localStorage["user_available"]+"$");
+								$("#id_available").html("$"+localStorage["user_available"]);
 							</script>
 						</div>
 						<div class="ui-block-b grid-width-40">
@@ -87,7 +87,7 @@
 						<div class="ui-block-c grid-width-30 align-center">
 							<p class="margin-auto " style="text-height:1 !important;"> <span class="text-info-menu ">LOCKED</span> <br> <span class="cash-info-menu" id="id_locked"></span></p>
 							<script>
-								$("#id_locked").html(localStorage["user_locked"]+"$");
+								$("#id_locked").html("$"+localStorage["user_locked"]);
 							</script>
 						</div>
 					</div>

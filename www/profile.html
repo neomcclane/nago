@@ -118,8 +118,9 @@
 								    </div>
 								</div>					
 								<script>
-									$('#locked-id').addClass('p'+localStorage['user_locked']);
-									$('#locked-text').html(localStorage['user_locked']+'%');
+									var valor = parseInt((localStorage['user_locked'] * 100) / 3000 );
+									$('#locked-id').addClass('p'+valor);
+									$('#locked-text').html(valor+'%');
 								</script>
 								<p class="margin-none font-size-08">LOCKED</p>
 								<p class="margin-top-none font-size-08" id="head_locked"></p>
@@ -135,12 +136,14 @@
 								    </div>
 								</div>
 								<script>
-								var ancho = (100 * )
+									var suma = parseInt(localStorage['user_available']-(-localStorage['user_locked'])-(-localStorage['user_invest'])); 
+									
+									var valor = parseInt(100 * parseInt(localStorage['user_invest']) / suma );
 
-									$('#invested-id').addClass('p'+localStorage['user_invest']);
-									$('#invested-text').html(localStorage['user_invest']+'%');
+									$('#invested-id').addClass('p'+valor);
+									$('#invested-text').html(valor+'%');
 								</script>
-								<p class="margin-none font-size-08">INVEST</p>
+								<p class="margin-none font-size-08">INVESTED</p>
 								<p class="margin-top-none font-size-08" id="head_invest"></p>
 							</div>
 						</div>	
@@ -192,14 +195,14 @@
 
 					<div class="ui-grid-solo grid-margin-bottom">
 						<div class="ui-block-a">
-							<label for="text-basic">Name:</label>
+							<label for="text-basic">First Name:</label>
 							<input class="input-profile" id="user_name_form" readonly="readonly">
 						</div>
 					</div>
 
 					<div class="ui-grid-solo grid-margin-bottom">
 						<div class="ui-block-a">
-							<label for="text-basic">lastname:</label>
+							<label for="text-basic">Last Name:</label>
 							<input class="input-profile" id="user_lastname_form" readonly="readonly">
 						</div>
 					</div>
@@ -228,7 +231,7 @@
 
 					<div class="ui-grid-solo grid-margin-bottom">
 						<div class="ui-block-a">
-							<label for="date">Birthdate:</label>
+							<label for="date">Day of Birth:</label>
 							<input type="date" name="date" id="user_birthdate_form" value="" readonly="readonly">
 							<script>
 								// $(document).ready(function() {
@@ -269,12 +272,12 @@
 						</div>
 					</div>
 
-					<div class="ui-grid-solo grid-margin-bottom">
+					<!--<div class="ui-grid-solo grid-margin-bottom">
 						<div class="ui-block-a">
 							<label for="text-basic">Faculty:</label>
 							<input class="input-profile" id="user_faculty_form" readonly="readonly">
 				 		</div>
-					</div>
+					</div>-->
 
 					<div class="ui-grid-solo grid-margin-bottom">
 						<div class="ui-block-a">

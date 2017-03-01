@@ -110,12 +110,12 @@
 
 							<div class="ui-grid-a quads">
 								<div class="ui-block-a align-center">
-									<p class="text-info-small">DEADLINE</p>
+									<p class="text-info-small">EXP. DATE</p>
 								</div>
 								<div class="ui-block-b align-center border-left">
 									<p id="loan_date_expiration" class="text-info-small"></p>
 									<script>
-										$("#loan_date_expiration").text(localStorage['loan_deadline']);
+										$("#loan_date_expiration").text(localStorage['loan_date_expiration']);
 									</script>	
 								</div>
 							</div>
@@ -130,7 +130,7 @@
 						<div class="ui-block-a grid-width-30 align-center">
 							<p class="margin-auto " style="text-height:1 !important;"> <span class="text-info-menu ">AMOUNT NEEDED</span> <br> <span id="loan_amount_request" class="cash-info-menu">200$</span></p>
 							<script>
-								$("#loan_amount_request").text(localStorage['loan_amount_request']+'$');
+								$("#loan_amount_request").text('$'+localStorage['loan_amount_request']);
 								
 							</script>	
 						</div>
@@ -308,16 +308,16 @@
 			    		localStorage['user_invest'] = data['amount_invested'];
 			    		localStorage["menu_locked"] = data['amount_locked'];
 			    		//localStorage["user_available"] = data['amount_available'];
-			    		alert("solicitud Creada Con Exito..!")
-			    		console.log("solicitud Creada Con Exito..!")
+			    		alert("Request created successfully")
+			    		console.log("Request created successfully")
 			    		document.location.href = "main.html";
 			    	}
 			    	else{
-			    		console.log("No se Puedo crear la solicitud")
+			    		console.log("I can not create the request")
 			    	}
 			    });
 			} else {
-				alert('ingrese algun monto');
+				alert('Enter some amount');
 			}
 		});
 	</script>		

@@ -17,7 +17,7 @@
 			<div class="ui-block-a align-center">
 				<div class="ui-grid-a margin-bottom-10">
 					<div class="ui-block-a align-left padding-left-40">
-						<p class="p-strong-menu">AVALAIBLE</p>
+						<p class="p-strong-menu">AVAILABLE</p>
 					</div>
 					<div class="ui-block-b">
 						<p class="p-menu" id="menu_available">887$</p>
@@ -33,16 +33,16 @@
 				</div>
 				<div class="ui-grid-a margin-bottom-10">
 					<div class="ui-block-a align-left padding-left-40">
-						<p class="p-strong-menu">INVEST</p>
+						<p class="p-strong-menu">INVESTED</p>
 					</div>
 					<div class="ui-block-b">
 						<p class="p-menu" id="menu_invest">392$</p>
 					</div>
 				</div>
 				<script>
-					$("#menu_available").html(localStorage["user_available"]+"$");
-					$("#menu_locked").html(localStorage["user_locked"]+"$");
-					$("#menu_invest").html(localStorage["user_invest"]+"$");
+					$("#menu_available").html("$"+localStorage["user_available"]);
+					$("#menu_locked").html("$"+localStorage["user_locked"]);
+					$("#menu_invest").html("$"+localStorage["user_invest"]);
 				</script>
 
 			</div>

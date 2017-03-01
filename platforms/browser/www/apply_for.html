@@ -137,7 +137,7 @@
 							<div class="ui-block-a">
 								<p class="text-menu-right-apply-for">AVAILABLE <br> <span id="apply-available" class="money-apply-for">887$</span> </p>
 								<script>
-									$("#apply-available").html(localStorage["user_available"]+"$");
+									$("#apply-available").html("$"+localStorage["user_available"]);
 								</script>
 							</div>
 						</div>
@@ -343,7 +343,7 @@
 	    	$('#days_return_modal').html($("#textInput").val());	
 	    	$('#deadline_modal').html(sumaFecha(parseInt($("#textInput").val().split(' ')[0])), $('#calendario').val());		
 	    } else {
-	    	alert('complete todos los campos');
+	    	alert('Complete all fields');
 	    }
     });
 
@@ -369,12 +369,12 @@
 		    
 		    request.done(function(data) { 
 		    	if (data == true){
-		    		alert("solicitud Creada Con Exito..!");
-		    		console.log("solicitud Creada Con Exito..!");
+		    		alert("Request created successfully");
+		    		console.log("Request created successfully");
 		    		document.location.href = "main.html";
 		    	}
 		    	else{
-		    		console.log("No se Puedo crear la solicitud");
+		    		console.log("I can not create the request");
 		    	}
 		    });
 	});
