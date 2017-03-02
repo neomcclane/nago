@@ -167,7 +167,7 @@
 		var ListUserDeadline = [];
 		
 		// Objeto que Define como se iran Mostrando los Usuarios en la lista
-		function user(actualUserId,actualUserImage,actualUserFullname,actualUserComment,actualUserDateReturn0,actualUserDateExpiration,actualUserMountRequest,actualUserMountAvailable,actualUserInterest0){
+		function user(actualUserId,actualUserImage,actualUserFullname,actualUserComment,actualUserDateReturn0,actualUserDateExpiration,actualUserMountRequest,actualUserMountAvailable,actualUserInterest0, actualUserDays){
 
 			this.actualUserId 		      = actualUserId;
 			// this.actualUserImage		  = actualUserImage;  En Pausa mientras se arregla lo de la foto
@@ -183,7 +183,7 @@
 			var ancho = (98 * parseInt(actualUserMountAvailable)) / parseInt(actualUserMountRequest);
 			
 		 
-			listStructure = '<li onclick=viewLoanDetail('+actualUserId+') id="'+actualUserId+'" class="content-list"><div class="ui-grid-b" ><div class="ui-block-a align-center grid-width-30" ><div class="ui-grid-solo "><div class="ui-block-a"><img class="img-responsive image-small-profile" src='+this.actualUserImage+' alt=""></div></div><div class="ui-grid-solo"><div class="ui-block-a align-left"><p class="text-profile-name">'+actualUserFullname+'</p></div></div></div><div class="ui-block-b grid-width-50 "><div class="ui-grid-solo"><div class="ui-block-a align-center block-middle">	<div class="ui-grid-a"><div class="ui-block-a"><p class="cash-a">'+actualUserMountRequest+'</p></div><div class="ui-block-b"><p class="cash-b">'+actualUserMountAvailable+'</p></div></div></div></div><div class="ui-grid-solo bar-cash" ><div class="line-black"><div class="line-white" style="width: '+ancho+'% !important;"><p class="info-cash"><strong></strong></p></div></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center align-center"><p class="speak-profile">'+actualUserComment+'</p></div></div></div><div class="ui-block-c  grid-width-20"><div class="ui-grid-solo"><div class="ui-block-a align-center"><p class="date-info">'+actualUserId+'<br> <strong class="date-num">'+actualUserId+'</strong></p></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center"><a href="#"><img src="img/circle.png" class="img-circle-btn" alt=""></a></div></div></div></div></li>'
+			listStructure = '<li onclick=viewLoanDetail('+actualUserId+') id="'+actualUserId+'" class="content-list"><div class="ui-grid-b" ><div class="ui-block-a align-center grid-width-30" ><div class="ui-grid-solo "><div class="ui-block-a"><img class="img-responsive image-small-profile" src='+this.actualUserImage+' alt=""></div></div><div class="ui-grid-solo"><div class="ui-block-a align-left"><p class="text-profile-name">'+actualUserFullname+'</p></div></div></div><div class="ui-block-b grid-width-50 "><div class="ui-grid-solo"><div class="ui-block-a align-center block-middle">	<div class="ui-grid-a"><div class="ui-block-a"><p class="cash-a">'+actualUserMountRequest+'</p></div><div class="ui-block-b"><p class="cash-b">'+actualUserMountAvailable+'</p></div></div></div></div><div class="ui-grid-solo bar-cash" ><div class="line-black"><div class="line-white" style="width: '+ancho+'% !important;"><p class="info-cash"><strong></strong></p></div></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center align-center"><p class="speak-profile">'+actualUserComment+'</p></div></div></div><div class="ui-block-c  grid-width-20"><div class="ui-grid-solo"><div class="ui-block-a align-center"><p class="date-info"><strong class="date-num">'+actualUserDays+'</strong></p></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center"><a href="#"><img src="img/circle.png" class="img-circle-btn" alt=""></a></div></div></div></div></li>'
 
 			user.prototype.joinStruct = function(){
 				return listStructure;
@@ -199,11 +199,11 @@
 			for (var i=0;i<data.users.length;i++){
 				console.log(data.users[i])
 				usuario = data.users[i];
-				console.log(usuario)
+				console.log(usuario.id)
 				// Agregado usuario en el arreglo
 				listUserAmount.push(usuario);							
 				// los voy dibujando enseguida
-					
+				console.log('days_finally: '+usuario.days_finally);
 				actualUserId 		     = usuario.id;
 				actualUserImage 	     = usuario.img_profile;
 				actualUserFullname 	 	 = usuario.fullname;
@@ -213,14 +213,15 @@
 				actualUserMountRequest   = usuario.amount_request;
 				actualUserMountAvailable = usuario.amount_available;
 				actualUserInterest0      = usuario.interest;				
+				actualUserDays           = usuario.days_finally;				
 
-				buildUser(actualUserId,actualUserImage,actualUserFullname,actualUserComment,actualUserDateReturn0,actualUserDateExpiration,actualUserMountRequest,actualUserMountAvailable,actualUserInterest0)
+				buildUser(actualUserId,actualUserImage,actualUserFullname,actualUserComment,actualUserDateReturn0,actualUserDateExpiration,actualUserMountRequest,actualUserMountAvailable,actualUserInterest0, actualUserDays)
 			}
 
           	// Esta funcion Construye la estructura de los usuarios que se Mostraran en la lista
           	function buildUser(actualUserId,actualUserImage,actualUserFullname,actualUserComment,actualUserDateReturn0,actualUserDateExpiration,actualUserMountRequest,actualUserMountAvailable,actualUserInterest0){
           		// console.log("este es actualUserFriend Antes de crear el Obj : " + actualUserFriend)
-          		userOnList = new user(actualUserId,actualUserImage,actualUserFullname,actualUserComment,actualUserDateReturn0,actualUserDateExpiration,actualUserMountRequest,actualUserMountAvailable,actualUserInterest0)
+          		userOnList = new user(actualUserId,actualUserImage,actualUserFullname,actualUserComment,actualUserDateReturn0,actualUserDateExpiration,actualUserMountRequest,actualUserMountAvailable,actualUserInterest0, actualUserDays)
 
 				$(place).append(userOnList.joinStruct)
           	}	                    	
@@ -368,21 +369,23 @@
 				actualUserDateExpiration = usuario.date_expiration;
 				actualUserMountRequest   = usuario.amount_request;
 				actualUserMountAvailable = usuario.amount_available;
-				actualUserInterest0      = usuario.interest;				
+				actualUserInterest0      = usuario.interest;	
+				actualUserDays           = usuario.days_finally;			
+							
 
-				builduserInterest(actualUserId,actualUserImage,actualUserFullname,actualUserComment,actualUserDateReturn0,actualUserDateExpiration,actualUserMountRequest,actualUserMountAvailable,actualUserInterest0)
+				builduserInterest(actualUserId,actualUserImage,actualUserFullname,actualUserComment,actualUserDateReturn0,actualUserDateExpiration,actualUserMountRequest,actualUserMountAvailable,actualUserInterest0, actualUserDays)
 			}
 
           	// Esta funcion Construye la estructura de los usuarios que se Mostraran en la lista
-          	function builduserInterest(actualUserId,actualUserImage,actualUserFullname,actualUserComment,actualUserDateReturn0,actualUserDateExpiration,actualUserMountRequest,actualUserMountAvailable,actualUserInterest0){
+          	function builduserInterest(actualUserId,actualUserImage,actualUserFullname,actualUserComment,actualUserDateReturn0,actualUserDateExpiration,actualUserMountRequest,actualUserMountAvailable,actualUserInterest0, actualUserDays){
           		// console.log("este es actualUserFriend Antes de crear el Obj : " + actualUserFriend)
-          		userOnList = new userInterest(actualUserId,actualUserImage,actualUserFullname,actualUserComment,actualUserDateReturn0,actualUserDateExpiration,actualUserMountRequest,actualUserMountAvailable,actualUserInterest0)
+          		userOnList = new userInterest(actualUserId,actualUserImage,actualUserFullname,actualUserComment,actualUserDateReturn0,actualUserDateExpiration,actualUserMountRequest,actualUserMountAvailable,actualUserInterest0, actualUserDays)
 
 				$(place).append(userOnList.joinStruct)
           	}	                    	
 		}
 
-		function userInterest(actualUserId,actualUserImage,actualUserFullname,actualUserComment,actualUserDateReturn0,actualUserDateExpiration,actualUserMountRequest,actualUserMountAvailable,actualUserInterest0){
+		function userInterest(actualUserId,actualUserImage,actualUserFullname,actualUserComment,actualUserDateReturn0,actualUserDateExpiration,actualUserMountRequest,actualUserMountAvailable,actualUserInterest0, actualUserDays){
 
 			this.actualUserId 		      = actualUserId;
 			// this.actualUserImage		  = actualUserImage;  En Pausa mientras se arregla lo de la foto
@@ -394,10 +397,11 @@
 			this.actualUserMountRequest   = actualUserMountRequest; 
 			this.actualUserMountAvailable = actualUserMountAvailable; 
 			this.actualUserInterest0	  = actualUserInterest0; 
+
 					
 			var ancho = (98 * parseInt(actualUserMountAvailable)) / parseInt(actualUserMountRequest);
 		 	
-			listStructure = '<li onclick=viewLoanDetail('+actualUserId+') id="'+actualUserId+'" class="content-list"><div class="ui-grid-b" ><div class="ui-block-a align-center grid-width-30" ><div class="ui-grid-solo "><div class="ui-block-a"><img class="img-responsive image-small-profile" src='+this.actualUserImage+' alt=""></div></div><div class="ui-grid-solo"><div class="ui-block-a align-left"><p class="text-profile-name">'+actualUserFullname+'</p></div></div></div><div class="ui-block-b grid-width-50 "><div class="ui-grid-solo"><div class="ui-block-a align-center block-middle">	<div class="ui-grid-a"><div class="ui-block-a"><p class="cash-a">'+actualUserMountRequest+'</p></div><div class="ui-block-b"><p class="cash-b">'+actualUserMountAvailable+'</p></div></div></div></div><div class="ui-grid-solo bar-cash" ><div class="line-black"><div class="line-white" style="width: '+ancho+'% !important;"><p class="info-cash"><strong></strong></p></div></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center align-center"><p class="speak-profile">'+actualUserComment+'</p></div></div></div><div class="ui-block-c  grid-width-20"><div class="ui-grid-solo"><div class="ui-block-a align-center"><p class="date-info">'+actualUserId+'<br> <strong class="date-num">'+actualUserId+'</strong></p></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center"><a href="#"><img src="img/circle.png" class="img-circle-btn" alt=""></a></div></div></div></div></li>'
+			listStructure = '<li onclick=viewLoanDetail('+actualUserId+') id="'+actualUserId+'" class="content-list"><div class="ui-grid-b" ><div class="ui-block-a align-center grid-width-30" ><div class="ui-grid-solo "><div class="ui-block-a"><img class="img-responsive image-small-profile" src='+this.actualUserImage+' alt=""></div></div><div class="ui-grid-solo"><div class="ui-block-a align-left"><p class="text-profile-name">'+actualUserFullname+'</p></div></div></div><div class="ui-block-b grid-width-50 "><div class="ui-grid-solo"><div class="ui-block-a align-center block-middle">	<div class="ui-grid-a"><div class="ui-block-a"><p class="cash-a">'+actualUserMountRequest+'</p></div><div class="ui-block-b"><p class="cash-b">'+actualUserMountAvailable+'</p></div></div></div></div><div class="ui-grid-solo bar-cash" ><div class="line-black"><div class="line-white" style="width: '+ancho+'% !important;"><p class="info-cash"><strong></strong></p></div></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center align-center"><p class="speak-profile">'+actualUserComment+'</p></div></div></div><div class="ui-block-c  grid-width-20"><div class="ui-grid-solo"><div class="ui-block-a align-center"><p class="date-info"><strong class="date-num">'+actualUserDays+'</strong></p></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center"><a href="#"><img src="img/circle.png" class="img-circle-btn" alt=""></a></div></div></div></div></li>'
 
 			userInterest.prototype.joinStruct = function(){
 				//console.log(listStructure)				
@@ -425,21 +429,22 @@
 				actualUserDateExpiration = usuario.date_expiration;
 				actualUserMountRequest   = usuario.amount_request;
 				actualUserMountAvailable = usuario.amount_available;
-				actualUserInterest0      = usuario.interest;				
+				actualUserInterest0      = usuario.interest;	
+				actualUserDays           = usuario.days_finally;			
 
-				builduserDeadline(actualUserId,actualUserImage,actualUserFullname,actualUserComment,actualUserDateReturn0,actualUserDateExpiration,actualUserMountRequest,actualUserMountAvailable,actualUserInterest0)
+				builduserDeadline(actualUserId,actualUserImage,actualUserFullname,actualUserComment,actualUserDateReturn0,actualUserDateExpiration,actualUserMountRequest,actualUserMountAvailable,actualUserInterest0, actualUserDays)
 			}
 
           	// Esta funcion Construye la estructura de los usuarios que se Mostraran en la lista
-          	function builduserDeadline(actualUserId,actualUserImage,actualUserFullname,actualUserComment,actualUserDateReturn0,actualUserDateExpiration,actualUserMountRequest,actualUserMountAvailable,actualUserInterest0){
+          	function builduserDeadline(actualUserId,actualUserImage,actualUserFullname,actualUserComment,actualUserDateReturn0,actualUserDateExpiration,actualUserMountRequest,actualUserMountAvailable,actualUserInterest0, actualUserDays){
           		// console.log("este es actualUserFriend Antes de crear el Obj : " + actualUserFriend)
-          		userOnList = new userInterest(actualUserId,actualUserImage,actualUserFullname,actualUserComment,actualUserDateReturn0,actualUserDateExpiration,actualUserMountRequest,actualUserMountAvailable,actualUserInterest0)
+          		userOnList = new userInterest(actualUserId,actualUserImage,actualUserFullname,actualUserComment,actualUserDateReturn0,actualUserDateExpiration,actualUserMountRequest,actualUserMountAvailable,actualUserInterest0, actualUserDays)
 
 				$(place).append(userOnList.joinStruct)
           	}	                    	
 		}
 
-		function userDeadline(actualUserId,actualUserImage,actualUserFullname,actualUserComment,actualUserDateReturn0,actualUserDateExpiration,actualUserMountRequest,actualUserMountAvailable,actualUserInterest0){
+		function userDeadline(actualUserId,actualUserImage,actualUserFullname,actualUserComment,actualUserDateReturn0,actualUserDateExpiration,actualUserMountRequest,actualUserMountAvailable,actualUserInterest0, actualUserDays){
 
 			this.actualUserId 		      = actualUserId;
 			// this.actualUserImage		  = actualUserImage;  En Pausa mientras se arregla lo de la foto
@@ -454,7 +459,7 @@
 					
 			var ancho = (98 * parseInt(actualUserMountAvailable)) / parseInt(actualUserMountRequest);
 		 	
-		 	listStructure = '<li onclick=viewLoanDetail('+actualUserId+') id="'+actualUserId+'" class="content-list"><div class="ui-grid-b" ><div class="ui-block-a align-center grid-width-30" ><div class="ui-grid-solo "><div class="ui-block-a"><img class="img-responsive image-small-profile" src='+this.actualUserImage+' alt=""></div></div><div class="ui-grid-solo"><div class="ui-block-a align-left"><p class="text-profile-name">'+actualUserFullname+'</p></div></div></div><div class="ui-block-b grid-width-50 "><div class="ui-grid-solo"><div class="ui-block-a align-center block-middle">	<div class="ui-grid-a"><div class="ui-block-a"><p class="cash-a">'+actualUserMountRequest+'</p></div><div class="ui-block-b"><p class="cash-b">'+actualUserMountAvailable+'</p></div></div></div></div><div class="ui-grid-solo bar-cash" ><div class="line-black"><div class="line-white" style="width: '+ancho+'% !important;"><p class="info-cash"><strong></strong></p></div></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center align-center"><p class="speak-profile">'+actualUserComment+'</p></div></div></div><div class="ui-block-c  grid-width-20"><div class="ui-grid-solo"><div class="ui-block-a align-center"><p class="date-info">'+actualUserId+'<br> <strong class="date-num">'+actualUserId+'</strong></p></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center"><a href="#"><img src="img/circle.png" class="img-circle-btn" alt=""></a></div></div></div></div></li>'
+		 	listStructure = '<li onclick=viewLoanDetail('+actualUserId+') id="'+actualUserId+'" class="content-list"><div class="ui-grid-b" ><div class="ui-block-a align-center grid-width-30" ><div class="ui-grid-solo "><div class="ui-block-a"><img class="img-responsive image-small-profile" src='+this.actualUserImage+' alt=""></div></div><div class="ui-grid-solo"><div class="ui-block-a align-left"><p class="text-profile-name">'+actualUserFullname+'</p></div></div></div><div class="ui-block-b grid-width-50 "><div class="ui-grid-solo"><div class="ui-block-a align-center block-middle">	<div class="ui-grid-a"><div class="ui-block-a"><p class="cash-a">'+actualUserMountRequest+'</p></div><div class="ui-block-b"><p class="cash-b">'+actualUserMountAvailable+'</p></div></div></div></div><div class="ui-grid-solo bar-cash" ><div class="line-black"><div class="line-white" style="width: '+ancho+'% !important;"><p class="info-cash"><strong></strong></p></div></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center align-center"><p class="speak-profile">'+actualUserComment+'</p></div></div></div><div class="ui-block-c  grid-width-20"><div class="ui-grid-solo"><div class="ui-block-a align-center"><p class="date-info"> <strong class="date-num">'+actualUserDays+'</strong></p></div></div><div class="ui-grid-solo"><div class="ui-block-a align-center"><a href="#"><img src="img/circle.png" class="img-circle-btn" alt=""></a></div></div></div></div></li>'
 
 			userDeadline.prototype.joinStruct = function(){
 				//console.log(listStructure)				
