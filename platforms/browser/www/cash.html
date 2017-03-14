@@ -94,32 +94,33 @@
 										<label for="text-basic" class="label-check">Email:</label>
 										<input id="email-in" type="email" class="input-profile" readonly="readonly">
 									</div>
-									<div class="form-control-ckeck">
-										<label for="text-basic" class="label-check">ABA Number:</label>
-										<input id="aba-in" type="number" class="input-profile-edit" >
-									</div>
-									<div class="form-control-ckeck">
-										<label for="text-basic" class="label-check">Account Number:</label>
-										<input id="number-in" type="number" class="input-profile-edit" >
-									</div>
-									<div class="form-control-ckeck">
-										<label for="text-basic" class="label-check">Amount:</label>
-										<input id="amount-in" type="number" class="input-profile-edit">
-									</div>
-									<div class="form-control-ckeck" style="margin-bottom: 70px !important;">
+									<div class="form-control-ckeck" style="margin-bottom: 50px !important;">
 										<label for="text-basic" class="label-check">Type:</label>
 										<select name="select-choice-a" id="select-choice-a" data-native-menu="false">
 										    <option value="checking">Checking</option>
 										    <option value="savings">Savings</option>
 										</select>
 									</div>
+									<div class="form-control-ckeck">
+										<label for="text-basic" class="label-check">ABA Number:</label>
+										<input id="aba-in" type="number" class="input-profile-edit" maxlength="10">
+									</div>
+									<div class="form-control-ckeck">
+										<label for="text-basic" class="label-check">Account Number:</label>
+										<input id="number-in" type="number" class="input-profile-edit" maxlength="10">
+									</div>
+									<div class="form-control-ckeck" style="margin-bottom: 70px !important;">
+										<label for="text-basic" class="label-check">Amount:</label>
+										<input id="amount-in" type="number" class="input-profile-edit" maxlength="10">
+									</div>
+									
 									
 									<!--<div class="form-control-check">
 										<hr>
 										<a href="#" class="ui-shadow ui-btn ui-corner-all">Send</a>
 									</div>-->
 									<div data-role="footer" data-position="fixed">
-										<button id="save_changes" type="button" class="ui-btn ui-corner-all btn-block btn-red-a">SEND CASH IN</button>
+										<button id="cash_btn" type="button" class="ui-btn ui-corner-all btn-block btn-red-a">SEND CASH IN</button>
 										<!-- <a href="main.html"  data-transition="slidefade" rel="external" class="btn-red">SIGN IN</a> -->
 									</div>
 
@@ -197,6 +198,38 @@
 	<script>
 			$("#menu").load('menu.html');
 			$("#header").load('header.html');
+
+			$(document).ready(function() {
+				$('#cash_btn').click(function() {
+					if($('#aba-in').val().length < 4 && $('#number-in').val().length < 4 && $('#amount-in').val().length < 1) {
+						console.log('no!');
+					} else {
+						console.log('click!');
+						var request = $.ajax({
+	                    url:serverURL+"checkInUser/",
+	                    method: "POST",
+	                    data: { 
+	                    		id: localStorage['user_id'], 
+	                    		customer_dwolla: localStorage['customer_dwolla'],
+	                     		number_aba: $('#aba-in').val(),
+	                     		type: $('#select-choice-a').val(),
+	                     		account_number: $('#number-in').val(),
+	                     		amount: $('#amount-in').val(),
+	                       		app     : 'N4g04pp'
+	                       	}
+						});
+		                request.done(function (data) {                         				
+							console.log();
+		                });
+		                
+		                request.fail(function (jqXHR, textStatus) {
+		                    $("#msg").html("Error de conexión.");
+		                    $("#msg").show();
+		                });
+						
+					}
+				});
+			})
 	</script>
 	
 
