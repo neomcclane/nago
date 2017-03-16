@@ -4,14 +4,21 @@
 	<title>Nago App | Friends</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+
+
 	<link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css">
-	<script src="js/config_var.js"></script>
-	<link rel="stylesheet" href="css/main.css">
-	 
-	<link rel="stylesheet" href="css/style.css">	 
+
+	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/friends.css">
-	<script src="js/jquery-1.11.1.min.js"></script>
-	<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+ 
+	<link rel="stylesheet" href="js/datepicker/jquery.mobile.datepicker.css" />
+	<link rel="stylesheet" href="js/datepicker/jquery.mobile.datepicker.theme.css" />
+	
+	<script src="js/config_var.js"></script>
+	<script src="js/datepicker/jquery-1.9.1.js"></script> 
+	<script src="js/datepicker/external/jquery-ui/datepicker.js"></script>
+	<script src="js/datepicker/jquery.mobile-git.js"></script> 
 
 </head>
 
@@ -59,7 +66,7 @@
 						
 					</div>
 				</div>
-
+				
 				<div class="ui-grid-solo content-fixed-button-menu">
 					<div class="ui-block-a">
 						<div class="ui-grid-a">
@@ -81,9 +88,6 @@
 						<div class="ui-block-a">
 							<div class="content-list-menu">
 								<ul class="list-profile-menu update-requested" data-role="listview" data-inset="true" data-icon="false">
-
-								    
-
 								</ul>
 							</div>
 						</div>
@@ -101,12 +105,82 @@
 					
 				</div>
 			<!---->
-		</div>		
+		</div>	
+
+		<div data-role="footer" data-position="fixed">
+			<button id="btn-account" type="button" class="ui-btn ui-corner-all btn-block btn-red-a">NEW ACCOUNT</button>
+			<!-- <a href="main.html"  data-transition="slidefade" rel="external" class="btn-red">SIGN IN</a> -->
+		</div>	
 	</div>	
+	<!--  -->
+	<div data-role="page" id="main">
+		
+	</div>
+	<div data-role="page" id="dialog">
+		<div data-role="header">
+			<h1>Information</h1>
+		</div>    
+		<div data-role="content" id="text">
+			<div class="content-fluid-f">
+				<div class="row-f">
+					<div class="col-xs-6-f">
+						<p class="text-modal-apply">Amount: </p>
+					</div>
+					<div class="col-xs-6-f">
+						<p id="amount_modal"></p>
+					</div>
+				</div>
+				<div class="row-f">
+					<div class="col-xs-6-f">
+						<p class="text-modal-apply" >Percentage: </p>
+					</div>
+					<div class="col-xs-6-f">
+						<p id="percentage_modal"></p>						
+					</div>
+				</div>
+				<div class="row-f">
+					<div class="col-xs-6-f">
+						<p class="text-modal-apply">Amount return: </p>
+					</div>
+					<div class="col-xs-6-f">
+						<p id="amount_return_modal"></p>											
+					</div>
+				</div>
+				<div class="row-f">
+					<div class="col-xs-6-f">
+						<p class="text-modal-apply">Days for return: </p>
+					</div>
+					<div class="col-xs-6-f">
+						<p id="days_return_modal"></p>											
+					</div>
+				</div>
+				<div class="row-f">
+					<div class="col-xs-6-f">
+						<p class="text-modal-apply">Deadline: </p>
+					</div>
+					<div class="col-xs-6-f">
+						<p id="deadline_modal"></p>											
+					</div>
+				</div>
+				<div class="row-f">
+					<div class="col-xs-12-f">
+						<button id="send_data">Ok</button>											
+					</div>
+				</div>
+			</div>
+
+		</div>    
+	</div>
+	<!--  -->
+	<a id='lnkDialog' href="#dialog" data-rel="dialog" data-transition="flip" style='display:none;'></a>
 	<script src="js/listmenuAccount.js"></script>
 	<script>
 			$("#menu").load('menu.html');
 			$("#header").load('header.html');
+
+			$("#btn-account").click(function(event) {
+				$('#lnkDialog').click();
+			}); 
 	</script>
 	<script>
 		var listUserRequested = [];

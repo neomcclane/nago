@@ -103,15 +103,15 @@
 									</div>
 									<div class="form-control-ckeck">
 										<label for="text-basic" class="label-check">ABA Number:</label>
-										<input id="aba-in" type="number" class="input-profile-edit" maxlength="10">
+										<input id="aba-in" type="number" class="input-profile-edit" maxlength="9">
 									</div>
 									<div class="form-control-ckeck">
 										<label for="text-basic" class="label-check">Account Number:</label>
-										<input id="number-in" type="number" class="input-profile-edit" maxlength="10">
+										<input id="number-in" type="number" class="input-profile-edit" maxlength="9">
 									</div>
 									<div class="form-control-ckeck" style="margin-bottom: 70px !important;">
 										<label for="text-basic" class="label-check">Amount:</label>
-										<input id="amount-in" type="number" class="input-profile-edit" maxlength="10">
+										<input id="amount-in" type="number" class="input-profile-edit" maxlength="3">
 									</div>
 									
 									
@@ -120,7 +120,7 @@
 										<a href="#" class="ui-shadow ui-btn ui-corner-all">Send</a>
 									</div>-->
 									<div data-role="footer" data-position="fixed">
-										<button id="cash_btn" type="button" class="ui-btn ui-corner-all btn-block btn-red-a">SEND CASH IN</button>
+										<button id="cashIn_btn" type="button" class="ui-btn ui-corner-all btn-block btn-red-a">SEND CASH IN</button>
 										<!-- <a href="main.html"  data-transition="slidefade" rel="external" class="btn-red">SIGN IN</a> -->
 									</div>
 
@@ -153,27 +153,28 @@
 										<input id="email-out" type="email" class="input-profile" readonly="readonly">
 									</div>
 									<div class="form-control-ckeck">
-										<label for="text-basic" class="label-check">ABA Number:</label>
-										<input id="aba-out" type="number" class="input-profile-edit" >
-									</div>
-									<div class="form-control-ckeck">
-										<label for="text-basic" class="label-check">Account Number:</label>
-										<input id="number-out" type="number" class="input-profile-edit" >
-									</div>
-									<div class="form-control-ckeck">
-										<label for="text-basic" class="label-check">Amount:</label>
-										<input id="amount-out" type="number" class="input-profile-edit">
-									</div>
-									<div class="form-control-ckeck" style="margin-bottom: 60px;">
 										<label for="text-basic" class="label-check">Type:</label>
 										<select name="select-choice-a" id="select-choice-a" data-native-menu="false">
 										    <option value="checking">Checking</option>
 										    <option value="savings">Savings</option>
 										</select>
 									</div>
+									<div class="form-control-ckeck">
+										<label for="text-basic" class="label-check">ABA Number:</label>
+										<input id="aba-out" type="number" class="input-profile-edit" maxlength="9">
+									</div>
+									<div class="form-control-ckeck">
+										<label for="text-basic" class="label-check">Account Number:</label>
+										<input id="number-out" type="number" class="input-profile-edit" maxlength="9">
+									</div>
+									<div class="form-control-ckeck" style="margin-bottom: 60px;">
+										<label for="text-basic" class="label-check">Amount:</label>
+										<input id="amount-out" type="number" class="input-profile-edit" maxlength="3">
+									</div>
+									
 									
 									<div data-role="footer" data-position="fixed">
-										<button id="save_changes" type="button" class="ui-btn ui-corner-all btn-block btn-red-a">SEND CASH OUT</button>
+										<button id="cashOut_btn" type="button" class="ui-btn ui-corner-all btn-block btn-red-a">SEND CASH OUT</button>
 										<!-- <a href="main.html"  data-transition="slidefade" rel="external" class="btn-red">SIGN IN</a> -->
 									</div>
 
@@ -200,13 +201,47 @@
 			$("#header").load('header.html');
 
 			$(document).ready(function() {
-				$('#cash_btn').click(function() {
-					if($('#aba-in').val().length < 4 && $('#number-in').val().length < 4 && $('#amount-in').val().length < 1) {
+				$('#cashIn_btn').click(function() {
+					if($('#aba-in').val().length != 9 || $('#number-in').val().length != 9 || $('#amount-in').val().length == 0) {
+						console.log('no!');
+					} 
+					else {
+						console.log('aba-in: '+$('#aba-in').val().length);
+						console.log('number-in: '+$('#number-in').val().length);
+						console.log('amount-in: '+$('#amount-in').val().length);
+						console.log('click!');
+						var request = $.ajax({
+	                    url:serverURL+"checkInUser/",
+	                    method: "POST",
+	                    data: { 
+	                    		id: localStorage['user_id'], 
+	                    		customer_dwolla: localStorage['customer_dwolla'],
+	                     		number_aba: $('#aba-in').val(),
+	                     		type: $('#select-choice-a').val(),
+	                     		account_number: $('#number-in').val(),
+	                     		amount: $('#amount-in').val(),
+	                       		app     : 'N4g04pp'
+	                       	}
+						});
+		                request.done(function (data) {                         				
+							console.log();
+		                });
+		                
+		                request.fail(function (jqXHR, textStatus) {
+		                    $("#msg").html("Error de conexión.");
+		                    $("#msg").show();
+		                });
+						
+					}
+				});
+
+				$('#cashOut_btn').click(function() {
+					if($('#aba-out').val().length != 9 || $('#number-out').val().length != 9|| $('#amount-out').val().length == 0) {
 						console.log('no!');
 					} else {
 						console.log('click!');
 						var request = $.ajax({
-	                    url:serverURL+"checkInUser/",
+	                    url:serverURL+"checkOutUser/",
 	                    method: "POST",
 	                    data: { 
 	                    		id: localStorage['user_id'], 
